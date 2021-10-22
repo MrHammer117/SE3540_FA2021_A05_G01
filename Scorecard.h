@@ -16,10 +16,11 @@ private:
 	int bonus = 50;
 	bool newSC = false;
 public:
-	bool CreateScorecard();
+	
 	int total;
 	int scores[13];
 	bool used[13];
+	void CreateScorecard();
 	void getScore(int categoryIndex)
 	void checkCat()
 	void selectCat()
