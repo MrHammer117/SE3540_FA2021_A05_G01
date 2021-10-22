@@ -1,34 +1,21 @@
-#ifndef SCORECARD_H
-#define SCORECARD_H
+//header file for Score_card.cpp
+#ifndef SCORE_CARD_
+#define SCORE_CARD_
 
-#include <iostream>
-#include <fstream>
-#include <cstdlib>
-#include <cstring>
-//include dice
+#include "Dice.h"
 
+Class ScoreCard
+{
+	private:
+		int scores[13];
+		bool used[13];
+		bool newSC;
+ 	
+	public:
+		ScoreCard(int score[13], int isUsed[13], bool newSC);
+		void DisplayScoreCard();
+		int CheckCat(int scoreAtCat);
+}
 
-using namespace std;
- 
-class scorecard {
-private:
-	string catogories[];
-	int bonus = 50;
-	bool newSC = false;
-public:
-	bool CreateScorecard();
-	int total;
-	int scores[13];
-	bool used[13];
-	void getScore(int categoryIndex)
-	void checkCat()
-	void selectCat()
-	void addScore()
-	void setFinalScore()
-	void DisplayScoreCard();
-	bool IsValid(int userInput);
-	void DisplayScoringRules()
-};
-
-#include "Scorecard.cpp"
+#include "ScoreCard.cpp"
 #endif
