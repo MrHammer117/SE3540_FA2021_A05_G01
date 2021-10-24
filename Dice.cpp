@@ -31,7 +31,6 @@ void Dice::sortDice() {
 	Die temp;
 	Dice tempArr;
 
-
 	for (int i = 0; i < 5; i++) {
 		for (int j = i + 1; j < 5; j++) {
 			if (tempArr.getValue(dieArray[i]) > tempArr.getValue(dieArray[j])) {
@@ -42,5 +41,3 @@ void Dice::sortDice() {
 		}
 	}
 }
-
-
