@@ -21,3 +21,21 @@ int Dice::rollDice(Die rollDie) {
 	return rollDie.value;
 }
 
+
+//given an array of 5 die, it will sort them in ascending order
+void Dice::sortDice() {
+	Die temp;
+	Dice tempArr;
+
+
+	for (int i = 0; i < 5; ++i) {
+		for (int j = i + 1; j < 5; ++j) {
+			if (tempArr.getValue(dieArray[i]) > tempArr.getValue(dieArray[j])) {
+				temp = dieArray[i];
+				dieArray[i] = dieArray[j];
+				dieArray[j] = temp;
+			}
+		}
+	}	 
+}
+
