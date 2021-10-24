@@ -8,6 +8,7 @@ Die::Die() {
 	int value = 0;
 }
 
+// Return the number from each dice roll
 int Die::getDie() {
 	return value;
 }

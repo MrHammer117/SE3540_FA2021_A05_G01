@@ -13,6 +13,8 @@ public:
 
 	int rollDice(Die rollDie);
 
+	void sortDice();
+
 	Die dieArray[5];
 };
 #endif;

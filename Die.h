@@ -11,6 +11,5 @@ public:
 	int getDie();
 
 	int value = 0;
-
 };
 #endif;
