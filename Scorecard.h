@@ -5,7 +5,8 @@
 #include <fstream>
 #include <cstdlib>
 #include <cstring>
-//include dice
+#include <"Dice.h">
+#include <"Die.h">
 using namespace std;
  
 class scorecard {
@@ -15,17 +16,18 @@ private:
 	bool newSC = false;
 public:
 	
+	int final_score;
 	int total;
 	int scores[13];
 	bool used[13];
 	void CreateScorecard();
 	void getScore(int categoryIndex)
 	void checkCat()
-	void selectCat()
+	bool selectCat(int user_input)
 	void addScore()
 	void setFinalScore()
 	void DisplayScoreCard();
-	bool IsValid(int userInput);
+	bool IsValidCat(int userInput);
 	void DisplayScoringRules()
 };
 #include "Scorecard.cpp"

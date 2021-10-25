@@ -8,7 +8,7 @@
 //creates an new scorecard, fills the score array with -1 
 //and the used array with false 
 void scorecard::CreateScorecard(){
-	for(int i = 0; i < 13; i++){
+	for(int i = 0; i < 14; i++){
 			SetScore(scores[i],used[i],-1,false);
 	}
 	
@@ -135,4 +135,163 @@ bool scorecard::IsValidCat(int userInput){
 	}
 	return true;
 	
+}
+
+void selectCat()
+{
+	int user_intput = 0;
+	int temp_score = NULL;
+		DisplayScoringRules();
+		cout << "Select a Catogory" << endl;
+		cin >> user_input;
+
+		switch (user_input)
+		case '1':
+			if (used[0] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[0] = temp_score;
+			}
+		case '2':
+			if (used[1] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[1] = temp_score;
+			}
+		case '3':
+			if (used[2] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[2] = temp_score;
+			}
+		case '4':
+			if (used[3] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[3] = temp_score;
+			}
+		case '5':
+			if (used[4] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[4] = temp_score;
+			}
+		case '6':
+			if (used[5] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[5] = temp_score;
+			}
+		case '7':
+			if (used[6] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[6] = temp_score;
+			}
+		case '8':
+			if (used[7] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[7] = temp_score;
+			}
+		case '9':
+			if (used[8] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[8] = temp_score;
+			}
+		case '10':
+			if (used[9] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[9] = temp_score;
+			}
+		case '11':
+			if (used[10] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[10] = temp_score;
+			}
+		case '12':
+			if (used[11] == false)
+			{
+
+			}
+
+		case '13':
+			if (used[12] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[12] = temp_score;
+			}
+		case '14'
+			if (used[13] == false)
+			{
+				temp_score = ? ? ? ? (user_input);
+				score[13] = temp_score;
+			}
+}			
+			
+int setFinalScore()
+{
+	for (int i = 0; i < 13)
+	{
+		final_score += scores[0]
+	}
+}
+bool CheckCat(int key)
+{
+	if (key == 1)
+	{
+		
+	}
+	else if (key == 2)
+	{
+
+	}
+	else if (key == 3)
+	{
+
+	}
+	else if (key == 4)
+	{
+
+	}
+	else if (key == 5)
+	{
+
+	}
+	else if (key == 6)
+	{
+
+	}
+	else if (key == 7)
+	{
+
+	}
+	else if (key == 8)
+	{
+
+	}
+	else if (key == 9)
+	{
+
+	}
+	else if (key == 10)
+	{
+
+	}
+	else if (key == 11)
+	{
+
+	}
+	else if (key == 12)
+	{
+
+	}
+	else if (key == 13)
+	{
+
+	}
+
 }
