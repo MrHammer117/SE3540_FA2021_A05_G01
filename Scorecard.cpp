@@ -8,7 +8,7 @@
 //creates an new scorecard, fills the score array with -1 
 //and the used array with false 
 void scorecard::CreateScorecard(){
-	for(int i = 0; i < 14; i++){
+	for(int i = 0; i < 13; i++){
 			SetScore(scores[i],used[i],-1,false);
 	}
 	
@@ -25,8 +25,8 @@ void scorecard::DisplayScoringRules(){
 		
 	
 	// will print all options and description
-	
-			
+	string msg  = "------------\nThe objective of YAHTZEE is to get as many points as\npossible by rolling five dice and getting certain combinations of dice.\nEach turn, a player may roll 5 die and choose a category to score.\nUnlike classic YAHTZEE, the player may not reroll unwanted die.\nAfter choosing a category, the game will move to the next round.\nThe player may choose a categoy even if they have no die to match\nthe category, however, upon doing so, they will receive a zero at that category.\nThe game will end after all categoies have been filled.\n------------\n";
+		cout << msg;
 		cout << "\n*** Upper Section ***";
 		cout << "\n 1)'Aces' - Adds all ones in hand";
 		cout << "\n 2)'Twos' - Add all twos in hand";
@@ -125,7 +125,37 @@ void scorecard::DisplayScoreCard(){
 	
 	
 }
+//display final scores along with bonuses and final score
+void displayFinalScoreCard(){
+	Scorer myScorer;
+	
+	cout << "\n*** Upper Section ***";
+	cout << "\n Aces: "<< scores[0];
+	cout << "\n Twos: "<< scores[1];
+	cout << "\n Threes: "<< scores[2];
+	cout << "\n Fours: "<< scores[3];
+	cout << "\n Fives: "<< scores[4];
+	cout << "\n Sixes: "<< scores[5];
+	cout << "\n Total Score: "<< myScorer.getUpperScore();
+	cout << "\n Bonus: "<< myScorer.getUpperBonus();
+	cout << "\n Total of Upper Section: " << myScorer.getTotalUpper;
+	cout << "\n*** Lower Section ***";
+	cout << "\n 3 of a Kind "<< scores[6];
+	cout << "\n 4 of a Kind "<< scores[7];
+	cout << "\n Full House "<< scores[8];
+	cout << "\n Small Straight "<< scores[9];
+	cout << "\n Large Straight "<< scores[10];
+	cout << "\n YAHTZEE! "<< scores[11];
+	cout << "\n Chance "<< scores[12];
+	cout << "\n YAHTZEE Bonus: "<< myScorer.getYahtzeeBonus();;
+	cout << "\n Total Of Lower Section: "<< myScorer.getTotalLower();
+	cout << "\n Grand Score: "<< myScorer.getGrandTotal();
+	
+		
+}
 
+
+/*
 //checks to see if user input is a valid category
 //will probably crash if non integer number is entered
 bool scorecard::IsValidCat(int userInput){
@@ -136,12 +166,12 @@ bool scorecard::IsValidCat(int userInput){
 	return true;
 	
 }
-
+*/
 void selectCat()
 {
 	int user_intput = 0;
 	int temp_score = NULL;
-		DisplayScoringRules();
+		DisplayScoreCard();
 		cout << "Select a Catogory" << endl;
 		cin >> user_input;
 
