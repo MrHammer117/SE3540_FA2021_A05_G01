@@ -1,3 +1,13 @@
+/*
+Adrian Humphrey
+Rogelio Rojas (Bulk of sort die)
+SE 3450
+Group 01
+Assignment 5 Yahtzee game
+Dice class implementation
+Modified last: 10/26/21
+*/
+
 # include "Dice.h"
 # include "Die.h"
 # include <string>
@@ -5,6 +15,7 @@
 
 using namespace std;
 
+// Initializes an array of Die objects so they can easily be sorted and compared
 Dice::Dice() {
 	Die dieList[5];
 }
@@ -26,14 +37,13 @@ int Dice::rollDice(Die rollDie) {
 }
 
 
-//given an array of 5 die, it will sort them in ascending order
+// Given an array of 5 die, it will sort them in ascending order
 void Dice::sortDice() {
 	Die temp;
-	Dice tempArr;
-
-	for (int i = 0; i < 5; i++) {
-		for (int j = i + 1; j < 5; j++) {
-			if (tempArr.getValue(dieArray[i]) > tempArr.getValue(dieArray[j])) {
+	Dice swapArr;
+	for (int i = 0; i < 5; ++i) {
+		for (int j = i + 1; j < 5; ++j) {
+			if (swapArr.getValue(dieArray[i]) > swapArr.getValue(dieArray[j])) {
 				temp = dieArray[i];
 				dieArray[i] = dieArray[j];
 				dieArray[j] = temp;
@@ -41,3 +51,5 @@ void Dice::sortDice() {
 		}
 	}
 }
+
+
