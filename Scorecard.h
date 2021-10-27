@@ -4,30 +4,33 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
-#include <cstring>
+#include <string>
 #include <"Dice.h">
 #include <"Die.h">
 using namespace std;
  
 class scorecard {
 private:
-	string catogories[];
+	//string catogories[]; unused?
 	int bonus = 50;
 	bool newSC = false;
+	;
 public:
 	
+	//---
 	int final_score;
 	int total;
-	int scores[14];
-	bool used[14];
+	int scores[13];
+	bool used[13];
 	void CreateScorecard();
-	void getScore(int categoryIndex);
-	int addScore(int key);
-	void setFinalScore();
+	void getScore(int categoryIndex)
+	void checkCat()
+	bool selectCat(int user_input)
+	void addScore()
+	void setFinalScore()
 	void DisplayScoreCard();
-	void selectCat();
 	bool IsValidCat(int userInput);
-	void DisplayScoringRules();
+	void DisplayScoringRules()
 };
 #include "Scorecard.cpp"
 #endif
