@@ -11,23 +11,19 @@ using namespace std;
  
 class scorecard {
 private:
-	//string catogories[]; unused?
-	int bonus = 50;
+	int bonus = 100;
 	bool newSC = false;
-	;
 public:
 	
-	//---
 	int final_score;
 	int total;
-	int scores[13];
-	bool used[13];
+	int scores[14];
+	bool used[14];
 	void CreateScorecard();
-	void getScore(int categoryIndex)
-	void checkCat()
-	bool selectCat(int user_input)
-	void addScore()
-	void setFinalScore()
+	void getScore(int categoryIndex);
+	bool selectCat(int user_input);
+	void addScore(int key);
+	void setFinalScore();
 	void DisplayScoreCard();
 	bool IsValidCat(int userInput);
 	void DisplayScoringRules()

@@ -122,6 +122,12 @@ void scorecard::DisplayScoreCard(){
 		}else{
 			cout << "\n 13)'Chance': " << getScore[12];
 		}
+		if (getScore[13] == -1) {
+			cout << "\n 13)'Bonus': EMPTY"
+		}
+		else {
+			cout << "\n 13)'Bonus': " << getScore[12];
+		}
 			
 	
 	
@@ -139,100 +145,167 @@ bool scorecard::IsValidCat(int userInput){
 	return true;
 	
 }
+*/
 
-void selectCat()
+
+bool scorecard::selectCat(int user_input)
 {
-	int user_intput = 0;
 	int temp_score = NULL;
 		DisplayScoreCard();
-		cout << "Select a Catogory" << endl;
-		cin >> user_input;
 
 		switch (user_input)
 		case '1':
 			if (used[0] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[0] = temp_score;
+				used[0] = true;
+			}
+			else
+			{
+			cout << "This catogory is already filled please select another one."
 			}
 		case '2':
 			if (used[1] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[1] = temp_score;
+				used[1] = true;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 		case '3':
 			if (used[2] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[2] = temp_score;
+				used[2] = true;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 		case '4':
 			if (used[3] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[3] = temp_score;
+				used[3] = true;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 		case '5':
 			if (used[4] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[4] = temp_score;
+				used[4] = true;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 		case '6':
 			if (used[5] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[5] = temp_score;
+				used[5] = true;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 		case '7':
 			if (used[6] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[6] = temp_score;
+				used[6] = true;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 		case '8':
 			if (used[7] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[7] = temp_score;
+				used[7] = true;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 		case '9':
 			if (used[8] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[8] = temp_score;
+				used[8] = true;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 		case '10':
 			if (used[9] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[9] = temp_score;
+				used[9] = true;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 		case '11':
 			if (used[10] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[10] = temp_score;
+				used[10] = true;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 		case '12':
 			if (used[11] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[11] = temp_score;
+				used[11] = true;
 			}
-
+			else
+			{
+				cout << "This catogory is already filled please select another one."
+			}
 		case '13':
 			if (used[12] == false)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[12] = temp_score;
+				used[12] = true;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 		case '14'
 			if (used[11] == true)
 			{
-				temp_score = ? ? ? ? (user_input);
+				temp_score = addScore(user_input);
 				score[13] += temp_score;
+			}
+			else
+			{
+				cout << "This catogory is already filled please select another one."
 			}
 }			
 		
@@ -250,5 +323,4 @@ int scorecard::setFinalScore()
 int scorecard::addScore(int key)
 {
 
-}
 }
