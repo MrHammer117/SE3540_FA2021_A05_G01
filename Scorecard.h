@@ -18,17 +18,16 @@ public:
 	
 	int final_score;
 	int total;
-	int scores[13];
-	bool used[13];
+	int scores[14];
+	bool used[14];
 	void CreateScorecard();
-	void getScore(int categoryIndex)
-	void checkCat()
-	bool selectCat(int user_input)
-	void addScore()
-	void setFinalScore()
+	void getScore(int categoryIndex);
+	int addScore(int key);
+	void setFinalScore();
 	void DisplayScoreCard();
+	void selectCat();
 	bool IsValidCat(int userInput);
-	void DisplayScoringRules()
+	void DisplayScoringRules();
 };
 #include "Scorecard.cpp"
 #endif

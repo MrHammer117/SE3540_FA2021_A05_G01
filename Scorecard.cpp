@@ -41,7 +41,8 @@ void scorecard::DisplayScoringRules(){
 		cout << "\n 10)'Small Straight' - Roll 4 sequential numbers. Worth 30 points.";
 		cout << "\n 11)'Large Straight' - Roll 5 sequential numbers. Worth 40 points.";
 		cout << "\n 12)'YAHTZEE!' - Roll 5 of the same number. Worth 50 points.";
-		cout << "\n 13)'Chance' - Add the total of all five dice, and enter sum to score.";			
+		cout << "\n 13)'Chance' - Add the total of all five dice, and enter sum to score.";	
+		cout << "\n 14)'Bonus' - Roll 5 of the same number. Worth 100 points after you have used YAHTZEE.";
 	}
 	
 	
@@ -121,7 +122,12 @@ void scorecard::DisplayScoreCard(){
 		}else{
 			cout << "\n 13)'Chance': " << getScore[12];
 		}
-			
+		if (getScore[13] == -1 && used[13] == false) {
+			cout << "\n 14)'Bonus': EMPTY"
+		}
+		else {
+			cout << "\n 14)'Bonus': " << getScore[13];
+		}
 	
 	
 }
@@ -130,14 +136,16 @@ void scorecard::DisplayScoreCard(){
 //will probably crash if non integer number is entered
 bool scorecard::IsValidCat(int userInput){
 	if (userInput > 0 && userInput <=13){  
-		cout << "Please enter a valid category (1-13)"
+		cout << "Please enter a valid category (1-14)"
 		return false;
 	}
 	return true;
 	
 }
 
-void selectCat()
+// Asks user to pick a Cateogory and then calls ??? for the score then
+// moves scores into the score[]
+void scorecard::selectCat()
 {
 	int user_intput = 0;
 	int temp_score = NULL;
@@ -215,7 +223,8 @@ void selectCat()
 		case '12':
 			if (used[11] == false)
 			{
-
+				temp_score = ? ? ? ? (user_input);
+				score[11] = temp_score;
 			}
 
 		case '13':
@@ -225,73 +234,26 @@ void selectCat()
 				score[12] = temp_score;
 			}
 		case '14'
-			if (used[13] == false)
+			if (used[11] == true)
 			{
 				temp_score = ? ? ? ? (user_input);
-				score[13] = temp_score;
+				score[13] += temp_score;
 			}
 }			
-			
-int setFinalScore()
-{
-	for (int i = 0; i < 13)
-	{
-		final_score += scores[0]
-	}
-}
-bool CheckCat(int key)
-{
-	if (key == 1)
-	{
 		
-	}
-	else if (key == 2)
+// This method adds all the scores in the scores[] into final score
+int scorecard::setFinalScore()
+{
+	for (int i = 0; i < 14, i++)
 	{
-
+		final_score += scores[i]
 	}
-	else if (key == 3)
-	{
+	return(final_score);
+}
 
-	}
-	else if (key == 4)
-	{
+// Key is the cateogory number and this method is for getting the dice values and make the score and send it to selectCat
+int scorecard::addScore(int key)
+{
 
-	}
-	else if (key == 5)
-	{
-
-	}
-	else if (key == 6)
-	{
-
-	}
-	else if (key == 7)
-	{
-
-	}
-	else if (key == 8)
-	{
-
-	}
-	else if (key == 9)
-	{
-
-	}
-	else if (key == 10)
-	{
-
-	}
-	else if (key == 11)
-	{
-
-	}
-	else if (key == 12)
-	{
-
-	}
-	else if (key == 13)
-	{
-
-	}
-
+}
 }
