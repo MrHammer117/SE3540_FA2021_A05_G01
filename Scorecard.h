@@ -1,4 +1,3 @@
-
 #ifndef SCORECARD_H
 #define SCORECARD_H
 #include <iostream>
@@ -7,6 +6,7 @@
 #include <string>
 #include <"Dice.h">
 #include <"Die.h">
+#include <"Yahtzee2.cpp">
 using namespace std;
  
 class scorecard {
