@@ -370,7 +370,7 @@ int scorecard::addScore(int key, Dice dice)
 		///////////////////////
 
 
-		  // ACES
+	// ACES
 	case 1:
 
 		// Goes through all of the dice and if they equal 1. IF it does, increment count by 1.
@@ -382,7 +382,7 @@ int scorecard::addScore(int key, Dice dice)
 
 		break;
 
-		// TWOS
+	// TWOS
 	case 2:
 
 		count = 0;
@@ -443,14 +443,24 @@ int scorecard::addScore(int key, Dice dice)
 		break;
 
 
+		 // TOP BONUS
+	case 7:
+
+		if(grandScore >= 63)
+			grandScore += 35;
+
+		break;
+
+
 		///////////////////////
 		// LOWER SCORE SHEET //
 		///////////////////////
 
-		  // 3 OF A KIND
-		  // [3,3,3,5,6,]
-	case 7:
 
+	// 3 OF A KIND
+	// [3,3,3,5,6]
+	// [1,2,4,4,4]
+	case 8:
 		check = 0;
 		count = 0;
 
@@ -466,21 +476,19 @@ int scorecard::addScore(int key, Dice dice)
 		}
 
 
-		if (count == 3) {
+		if (count >= 3) {
 			for (int i = 0; i < 5; i++)
 				upperScore += dice.getValue(dice.dieArray[i]);
 		}
 
-		break;
+	break;
 
-
-		// 4 OF A KIND
-		// [1,1,1,1,4]
-		// [2,5,5,5,5]
-	case 8:
-		check = dice.getValue(dice.dieArray[0]);
+	// 4 of a kind
+	// [1,1,1,1,3]
+	// [3,5,5,5,5]
+	case 9:
+		check = 0;
 		count = 0;
-
 
 		// Checks if valid dice input. Using checks because the dice are sorted.
 		for (int j = 0; j < 5; j++) {
@@ -493,66 +501,75 @@ int scorecard::addScore(int key, Dice dice)
 			}
 		}
 
-		if (count == 4) {
+
+		if (count >= 4) {
 			for (int i = 0; i < 5; i++)
 				upperScore += dice.getValue(dice.dieArray[i]);
-		}
+			}
 
 		break;
 
-		// FULL HOUSE (3 of a kind AND two of a kind)
-		// [1,1,1,5,5]
-		// [2,2,4,4,4]
-		// There is likely a way to optomize this, at a loss how though, if you guys can figure it out, please change this! - Adrian Humphrey
-	case 9:
+
+	// FULL HOUSE (3 of a kind AND two of a kind)
+	// [1,1,1,5,5]
+	// [2,2,4,4,4]
+	case 10:
+
 		check1 = 0;
 		check2 = 0;
 		if (dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1]) && dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[2]) ||
-			dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]) && dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[4]) &&
-			dice.getValue(dice.dieArray[1]) != dice.getValue(dice.dieArray[4])) {
-			check1 = 1;
+	    	dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]) && dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[4]) &&
+	    	dice.getValue(dice.dieArray[1]) != dice.getValue(dice.dieArray[4])) {
+	    	check1 = 1;
 		}
+
 		if (((dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4])) || (dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1]))) &&
-			(dice.getValue(dice.dieArray[0]) != dice.getValue(dice.dieArray[4])) && !(dice.getValue(dice.dieArray[3]) < dice.getValue(dice.dieArray[4])) &&
-			!(dice.getValue(dice.dieArray[0]) < dice.getValue(dice.dieArray[1]))) {
-			check2 = 1;
+	    	(dice.getValue(dice.dieArray[0]) != dice.getValue(dice.dieArray[4])) && !(dice.getValue(dice.dieArray[3]) < dice.getValue(dice.dieArray[4])) &&
+	    	!(dice.getValue(dice.dieArray[0]) < dice.getValue(dice.dieArray[1]))) {
+	    	check2 = 1;
 		}
+
 		if (check1 == 1 && check2 == 1) {
-			lowerScore += 25;
+	    	lowerScore += 25;
 		}
 
 		break;
 
-		// SMALL STRAIGHT (four number sequence)
-		// [1,2,3,4,6]
-		// [1,3,4,5,6]
-	case 10:
+	// SMALL STRAIGHT (four number sequence)
+	// [1,2,3,4,6]
+	// [1,3,4,5,6]
+	case 11:
 
 		countAcending = 0;
 		countDecending = 0;
 
 		for (int j = 0; j < 3; j++) {
-			if ((dice.getValue(dice.dieArray[j])+1) == dice.getValue(dice.dieArray[j+1])) {
-				countAcending++;
-			}
+	    	if ((dice.getValue(dice.dieArray[j])+1) == dice.getValue(dice.dieArray[j+1])) {
+	        	countAcending++;
+	    	}
 		}
+
 		if (countAcending == 3) {
-			lowerScore += 30;
-			break;
+	    	lowerScore += 30;
+	    	break;
 		}
+
 		for (int j = 4; j >= 0; j--) {
-			if ((dice.getValue(dice.dieArray[j])-1) == dice.getValue(dice.dieArray[j - 1])) {
-				countDecending++;
-			}
+	    	if ((dice.getValue(dice.dieArray[j])-1) == dice.getValue(dice.dieArray[j - 1])) {
+	        	countDecending++;
+	    	}
 		}
+
 		if (countDecending >= 3) {
-			lowerScore += 30;
-			break;
+	    	lowerScore += 30;
+	    	break;
 		}
 		break;
-		// LARGE STRAIGHT (five number sequence)
-		// [1,2,3,4,5]
-	case 11:
+
+	// LARGE STRAIGHT (five number sequence)
+	// [1,2,3,4,5]
+	case 12:
+
 		count = 0;
 		for (int j = 0; j < 4; j++) {
 			if ((dice.getValue(dice.dieArray[j])+1) == dice.getValue(dice.dieArray[j + 1])) {
@@ -563,15 +580,31 @@ int scorecard::addScore(int key, Dice dice)
 			lowerScore += 40;
 			break;
 		}
-		break;
-		// YAHTZEE AND YAHTZEE BONUS
-		// [1,1,1,1,1]
-	case 12:
+
 		break;
 
-		// CHANCE
-		// Adds up all of the dice
+
+	// YAHTZEE AND YAHTZEE BONUS
+	// [1,1,1,1,1]
 	case 13:
+
+		count = 1;
+		check = dice.getValue(dice.dieArray[j];
+
+		for(int i = 0; i < 5; i++){
+			if(check == dice.getValue(dice.dieArray[j])
+				count++;
+		}
+
+		if(count == 5)
+			lowerScore += 50;
+
+
+		break;
+
+	// CHANCE
+	// Adds up all of the dice
+	case 14:
 
 		for (int i = 0; i < 5; i++) {
 			lowerScore += dice.getValue(dice.dieArray[i]);
