@@ -323,4 +323,211 @@ int scorecard::setFinalScore()
 int scorecard::addScore(int key)
 {
 
+ // Goes to all of the spots in myScorecard.used and then gets the score. If myScorecard.used[i] != true then,
+          // it will go to the next.
+
+    int check = 0;
+    int count = 0;
+
+
+	switch(key) {
+
+
+  ///////////////////////
+  // UPPER SCORE SHEET //
+  ///////////////////////
+
+
+    // ACES
+    case 1:
+
+    	// Goes through all of the dice and if they equal 1. IF it does, increment count by 1.
+		// IF count is 0 score for that cat = 0. Else add count * 1 to upperScore.
+        for(int j = 0; j < 6; j++)
+            if(dice[j] == 1) { count++; }
+
+        if(count == 0) {
+        	std:: cout << "Invalid: No instances of the desiered number.";
+            break;
+        } else
+            upperScore += (count * 1);
+
+        break;
+
+
+    // TWOS
+    case 2:
+
+        count = 0;
+        // Goes through all of the dice and if they equal 2. IF it does, increment count by 1.
+		// IF count is 0 score for that cat = 0. Else add count * 2 to upperScore.
+		for(int j = 0; j < 6; j++)
+        	if(dice[j] == 2) { count++;}
+
+        if(count == 0) {
+            std:: cout << "Invalid: No instances of the desiered number.";
+            break;
+        } else
+            upperScore += (count * 2);
+
+        break;
+              
+	// THREES
+	case 3:
+		// Goes through all of the dice and if they equal 3. IF it does, increment count by 1.
+		// IF count is 0 score for that cat = 0. Else add count * 3 to upperScore.
+    	for(int j = 0; j < 6; j++)
+            if(dice[j] == 3) { upperScore += 3;}
+
+		if(count == 0) {
+            std:: cout << "Invalid: No instances of the desiered number.";
+            break;
+        } else
+            upperScore += (count * 3);
+
+        break;
+
+    // FOURS
+    case 4:
+		// Goes through all of the dice and if they equal 4. IF it does, increment count by 1.
+		// IF count is 0 score for that cat = 0. Else add count * 4 to upperScore.
+    	for(int j = 0; j < 6; j++)
+            if(dice[j] == 4) {  count++; }
+
+        if(count == 0) {
+            std:: cout << "Invalid: No instances of the desiered number.";
+            break;
+        } else
+            upperScore += (count * 4);
+
+
+		break;
+
+    // FIVES
+    case 5:
+        // Goes through all of the dice and if they equal 5. IF it does, increment count by 1.
+		// IF count is 0 score for that cat = 0. Else add count * 5 to upperScore.
+        for(int j = 0; j < 6; j++)
+            if(dice[j] == 5) {  count++; }
+
+		if(count == 0) {
+            std:: cout << "Invalid: No instances of the desiered number.";
+            break;
+        } else
+            upperScore += (count * 4);
+
+
+        break;
+
+
+    // SIXES
+    case 6:
+        // Goes through all of the dice and if they equal 6. IF it does, increment count by 1.
+		// IF count is 0 score for that cat = 0. Else add count * 6 to upperScore.
+        for(int j = 0; j < 6; j++)
+            if(dice[j] == 6) { upperScore += 6;}
+
+		if(count == 0) {
+            std:: cout << "Invalid: No instances of the desiered number.";
+            break;
+        } else
+            upperScore += (count * 4);
+
+        break;
+
+
+  ///////////////////////
+  // LOWER SCORE SHEET //
+  ///////////////////////
+
+    // 3 OF A KIND
+	// [3,3,3,5,6,]
+    case 7:
+
+    	check = 0;
+        count = 0;
+
+        // Checks if valid dice input. Using checks because the dice are sorted.
+    	for(int j = 0; j <= 6 || count == 3; j++){
+
+        	if(dice[j] != check)
+                check = dice[j];
+            else
+                count++;
+        }
+
+
+        if(count == 3) {
+            for(int i = 0; i < 6; i++)
+            	upperScore += dice[i];
+        }
+
+        break;
+
+
+    // 4 OF A KIND
+    // [1,1,1,1,4]
+    // [2,5,5,5,5]
+    case 8:
+        check = dice[0];
+        count = 0;
+
+
+        // Checks if valid dice input. Using checks because the dice are sorted.
+        for(int j = 1; j <= 6 || count == 4; j++){
+
+            if(dice[j] != check)
+            	check = dice[j];
+            else
+                count++;
+        }
+
+        if(count == 4) {
+            for(int i = 0; i < 6; i++)
+                    upperScore += dice[i];
+        }
+
+        break;
+
+    // FULL HOUSE (3 of a kind AND two of a kind)
+	// [1,1,1,5,5]
+	// [2,2,4,4,4]
+    case 9:
+        for(int j = 0; j < 6; j++){
+
+        }
+
+
+    // SMALL STRAIGHT (four number sequence)
+	// [1,2,3,4,6]
+	// [1,3,4,5,6]  
+    case 10:
+        for(int j = 0; j < 6; j++){
+
+        }
+
+    // LARGE STRAIGHT (five number sequence)
+	// [1,2,3,4,5]
+    case 11:
+        for(int j = 0; j <= 6; j++){
+
+        }
+
+    // YAHTZEE AND YAHTZEE BONUS
+	// [1,1,1,1,1]
+    case 12:
+		break;
+       
+    // CHANCE
+	// Adds up all of the dice
+    case 13:
+    	
+		for(int i = 0; i < 6; i++)
+			lowerScore += dice[i];
+
+    }
+
+    grandScore = lowerScore + upperScore;
+
+
 }
