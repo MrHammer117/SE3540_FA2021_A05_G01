@@ -498,6 +498,7 @@ int scorecard::addScore(int key, Dice dice)
 	// [1,1,1,1,3]
 	// [3,5,5,5,5]
 	case 9:
+	
 		check = 0;
 		count = 0;
 
@@ -525,7 +526,7 @@ int scorecard::addScore(int key, Dice dice)
 	// [1,1,1,5,5]
 	// [2,2,4,4,4]
 	case 10:
-
+	/*
 		check1 = 0;
 		check2 = 0;
 		if (dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1]) && dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[2]) ||
@@ -543,6 +544,21 @@ int scorecard::addScore(int key, Dice dice)
 		if (check1 == 1 && check2 == 1) {
 			lowerScore += 25;
 		}
+*/
+		
+		//if (3 of a kind && 2 of a kind) || (2 of a kind && 3 of a kind)
+		if (((dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1])) && (dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2])) && // 3 of a kind
+			(dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4])) && //two of a kind 
+			(dice.getValue(dice.dieArray[2]) != dice.getValue(dice.dieArray[3]))) || //not 4 of a kind
+			((dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1])) && //two of a kind
+			(dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3])) && (dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4])) && //3 of a kind
+			(dice.getValue(dice.dieArray[1]) != dice.getValue(dice.dieArray[2])))) //not 3 of kind in first 3 die
+			{
+				lowerScore += 25; //add 25 to lowerScore
+			}
+			
+
+
 
 		break;
 
