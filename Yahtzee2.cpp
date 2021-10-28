@@ -18,18 +18,7 @@ public:
      cout << "Type 'play' to play Yahtzee." << endl;
      cout << "Type 'stop' if you do not want to play the game." << endl;
         cin >> word;
-        
-        if (word == "play") {
-            cout << "Rolling Dice..." << endl;
-            srand(time(0));
-            Dice object1;
-            Show scorecard;
-            choose cat
-                show updated scoreboard
-                roll dice again.
-};
-
-        if (word == "stop") {
+         if (word == "stop") {
          cout << "Leaving game.";
      };
      if (word != "stop" && word != "play") {
@@ -39,13 +28,16 @@ public:
          cout << "Type 'stop' if you do not want to play the game." << endl;
          cin >> word;
      };
-         cout << "Would you like to roll the dice? Enter 'yes' to roll the dice. Enter 'no' to not roll the dice. Enter 'stop' to stop the game." << endl;
+        
+        if (word == "play") {
+             cout << "Would you like to roll the dice? Enter 'yes' to roll the dice. Enter 'no' to not roll the dice. Enter 'stop' to stop the game." << endl;
          cin >> word2;
+
          if (word2 == "no") {
              cout << "Would you like to roll the dice? Enter 'yes' to roll the dice. Enter 'no' to not roll the dice." << endl;
              cin >> word2;
          };
-         if (word2 == "exit") {
+         if (word2 == "stop") {
              cout << "Closing game. Goodbye";
          }
          if (word2 != "no" && word2 != "yes" && word2 != "stop") {
@@ -53,8 +45,7 @@ public:
              cout << "Would you like to roll the dice? Enter 'yes' to roll the dice. Enter 'no' to not roll the dice." << endl;
              cin >> word2;
          };
-
-         if (word2 == "yes") {
+          if (word2 == "yes") {
              cout << "Rolling Dice..." << endl;
              Dice object;
              scoreboard object2;
@@ -71,6 +62,13 @@ public:
              object2.displayFinalScoreboard;
          };
 
+            
+};
+
+       
+        
+
+        
 
         
     };
