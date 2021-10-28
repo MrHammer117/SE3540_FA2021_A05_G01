@@ -10,16 +10,19 @@
 
 //creates an new scorecard, fills the score array with -1
 //and the used array with false
-void scorecard::CreateScorecard() {
-	for (int i = 0; i < 13; i++) {
-		SetScore(scores[i], used[i], -1, false);
-	}
-
+scorecard::scorecard() {
+	int bonus = 100;
+	bool newSC = false;
+	int lowerScore = 0;
+	int upperScore = 0;
+	int grandScore = 0;
+	int score[15];
+	bool used[15];
 }
 
 //gets the score at a particular category
 int scorecard::getScore(int categoryIndex) {
-	return scores[categoryIndex];
+	return score[categoryIndex];
 }
 
 
@@ -258,10 +261,6 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			score[7] = temp_score;
 			used[7] = true;
 		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
 		break;
 	case 9:
 		if (used[8] == false)
@@ -299,6 +298,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 		{
 			cout << "This catogory is already filled please select another one.";
 		}
+		break;
 	case 12:
 		if (used[11] == false)
 		{
@@ -310,7 +310,6 @@ bool scorecard::selectCat(int user_input, Dice dice)
 		{
 			cout << "This catogory is already filled please select another one.";
 		}
-		break;
 	case 13:
 		if (used[12] == false)
 		{
@@ -324,10 +323,22 @@ bool scorecard::selectCat(int user_input, Dice dice)
 		}
 		break;
 	case 14:
-		if (used[11] == true)
+		if (used[13] == false)
 		{
 			temp_score = addScore(user_input, dice);
-			score[13] += temp_score;
+			score[13] = temp_score;
+			used[13] = true;
+		}
+		else
+		{
+			cout << "This catogory is already filled please select another one.";
+		}
+		break;
+	case 15:
+		if (used[14] == true)
+		{
+			temp_score = addScore(user_input, dice);
+			score[14] += temp_score;
 		}
 		else
 		{
@@ -342,7 +353,7 @@ int scorecard::setFinalScore()
 {
 	for (int i = 0; i < 14; i++)
 	{
-		final_score += scores[i];
+		final_score += score[i];
 	}
 	return(final_score);
 }
@@ -518,19 +529,19 @@ int scorecard::addScore(int key, Dice dice)
 		check1 = 0;
 		check2 = 0;
 		if (dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1]) && dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[2]) ||
-	    	dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]) && dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[4]) &&
-	    	dice.getValue(dice.dieArray[1]) != dice.getValue(dice.dieArray[4])) {
-	    	check1 = 1;
+			dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]) && dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[4]) &&
+			dice.getValue(dice.dieArray[1]) != dice.getValue(dice.dieArray[4])) {
+			check1 = 1;
 		}
 
 		if (((dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4])) || (dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1]))) &&
-	    	(dice.getValue(dice.dieArray[0]) != dice.getValue(dice.dieArray[4])) && !(dice.getValue(dice.dieArray[3]) < dice.getValue(dice.dieArray[4])) &&
-	    	!(dice.getValue(dice.dieArray[0]) < dice.getValue(dice.dieArray[1]))) {
-	    	check2 = 1;
+			(dice.getValue(dice.dieArray[0]) != dice.getValue(dice.dieArray[4])) && !(dice.getValue(dice.dieArray[3]) < dice.getValue(dice.dieArray[4])) &&
+			!(dice.getValue(dice.dieArray[0]) < dice.getValue(dice.dieArray[1]))) {
+			check2 = 1;
 		}
 
 		if (check1 == 1 && check2 == 1) {
-	    	lowerScore += 25;
+			lowerScore += 25;
 		}
 
 		break;
@@ -544,25 +555,25 @@ int scorecard::addScore(int key, Dice dice)
 		countDecending = 0;
 
 		for (int j = 0; j < 3; j++) {
-	    	if ((dice.getValue(dice.dieArray[j])+1) == dice.getValue(dice.dieArray[j+1])) {
-	        	countAcending++;
-	    	}
+			if ((dice.getValue(dice.dieArray[j])+1) == dice.getValue(dice.dieArray[j+1])) {
+				countAcending++;
+			}
 		}
 
 		if (countAcending == 3) {
-	    	lowerScore += 30;
-	    	break;
+			lowerScore += 30;
+			break;
 		}
 
 		for (int j = 4; j >= 0; j--) {
-	    	if ((dice.getValue(dice.dieArray[j])-1) == dice.getValue(dice.dieArray[j - 1])) {
-	        	countDecending++;
-	    	}
+			if ((dice.getValue(dice.dieArray[j])-1) == dice.getValue(dice.dieArray[j - 1])) {
+				countDecending++;
+			}
 		}
 
 		if (countDecending >= 3) {
-	    	lowerScore += 30;
-	    	break;
+			lowerScore += 30;
+			break;
 		}
 		break;
 
@@ -612,6 +623,5 @@ int scorecard::addScore(int key, Dice dice)
 	}
 
 	grandScore = lowerScore + upperScore;
-
 
 }
