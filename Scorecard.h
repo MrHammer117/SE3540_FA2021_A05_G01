@@ -18,19 +18,26 @@ private:
 	int lowerScore = 0;
 	int upperScore = 0;
 	int grandScore = 0;
-public:
-
 	int final_score;
 	int total;
-	int scores[14];
+	int score[14];
 	bool used[14];
-	void CreateScorecard();
+public:
+
+	scorecard();
+	
 	int getScore(int categoryIndex);
+
 	bool selectCat(int user_input, Dice dice);
+
 	int addScore(int key, Dice dice);
+
 	int setFinalScore();
+
 	void DisplayScoreCard();
-	bool IsValidCat(int userInput);
+
+	//bool IsValidCat(int userInput);
+
 	void DisplayScoringRules();
 };
 #include "Scorecard.cpp"

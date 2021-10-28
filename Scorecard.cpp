@@ -8,18 +8,21 @@
 
 
 
-//creates an new scorecard, fills the score array with -1
-//and the used array with false
-void scorecard::CreateScorecard() {
-	for (int i = 0; i < 13; i++) {
-		SetScore(scores[i], used[i], -1, false);
-	}
-
+//creates an new scorecard, fills the score array with -1 
+//and the used array with false 
+scorecard::scorecard() {
+	int bonus = 100;
+	bool newSC = false;
+	int lowerScore = 0;
+	int upperScore = 0;
+	int grandScore = 0;
+	int score[15];
+	bool used[15];
 }
 
 //gets the score at a particular category
 int scorecard::getScore(int categoryIndex) {
-	return scores[categoryIndex];
+	return score[categoryIndex];
 }
 
 
@@ -51,7 +54,7 @@ void scorecard::DisplayScoringRules() {
 
 void scorecard::DisplayScoreCard() {
 
-	//prints scorecard with its current scores... prints EMPTY if not been used ";
+	//prints scorecard with its current scores... prints EMPTY if not been used ";	
 
 	cout << "\nPlease select an EMPTY category(1-13)";
 	cout << "\n*** Upper Section ***";
@@ -258,10 +261,6 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			score[7] = temp_score;
 			used[7] = true;
 		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
 		break;
 	case 9:
 		if (used[8] == false)
@@ -298,6 +297,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 		{
 			cout << "This catogory is already filled please select another one.";
 		}
+		break;
 	case 12:
 		if (used[11] == false)
 		{
@@ -309,7 +309,6 @@ bool scorecard::selectCat(int user_input, Dice dice)
 		{
 			cout << "This catogory is already filled please select another one.";
 		}
-		break;
 	case 13:
 		if (used[12] == false)
 		{
@@ -323,10 +322,22 @@ bool scorecard::selectCat(int user_input, Dice dice)
 		}
 		break;
 	case 14:
-		if (used[11] == true)
+		if (used[13] == false)
 		{
 			temp_score = addScore(user_input, dice);
-			score[13] += temp_score;
+			score[13] = temp_score;
+			used[13] = true;
+		}
+		else
+		{
+			cout << "This catogory is already filled please select another one.";
+		}
+		break;
+	case 15:
+		if (used[14] == true)
+		{
+			temp_score = addScore(user_input, dice);
+			score[14] += temp_score;
 		}
 		else
 		{
@@ -341,7 +352,7 @@ int scorecard::setFinalScore()
 {
 	for (int i = 0; i < 14; i++)
 	{
-		final_score += scores[i];
+		final_score += score[i];
 	}
 	return(final_score);
 }
@@ -377,6 +388,13 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 1) { count++; }
 
+		/*
+		if (count == 0) {
+			std::cout << "Invalid: No instances of the desiered number.";
+			break;
+		}
+		else
+		*/
 			upperScore += (count * 1);
 
 		break;
@@ -390,6 +408,13 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 2) { count++; }
 
+		/* Not needed as one may want to score 0 in a zone
+		if (count == 0) {
+			std::cout << "Invalid: No instances of the desiered number.";
+			break;
+		}
+		else
+		*/
 			upperScore += (count * 2);
 
 		break;
@@ -401,6 +426,13 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 3) { upperScore += 3; }
 
+		/* Not needed as one may want to score 0 in a zone
+		if (count == 0) {
+			std::cout << "Invalid: No instances of the desiered number.";
+			break;
+		}
+		else
+		*/
 			upperScore += (count * 3);
 
 		break;
@@ -412,6 +444,13 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 4) { count++; }
 
+		/* Not needed as one may want to score 0 in a zone 
+		if (count == 0) {
+			std::cout << "Invalid: No instances of the desiered number.";
+			break;
+		}
+		else
+		*/
 			upperScore += (count * 4);
 
 
@@ -424,6 +463,13 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 5) { count++; }
 
+		/* Not needed as one may want to score 0 in a zone
+		if (count == 0) {
+			std::cout << "Invalid: No instances of the desiered number.";
+			break;
+		}
+		else
+		*/
 			upperScore += (count * 4);
 
 
@@ -437,10 +483,17 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 6) { upperScore += 6; }
 
+		/* Not needed as one may want to score 0 in a zone
+		if (count == 0) {
+			std::cout << "Invalid: No instances of the desiered number.";
+			break;
+		}
+		else
+		*/
 			upperScore += (count * 4);
 
 		break;
-
+	
 
 		///////////////////////
 		// LOWER SCORE SHEET //
@@ -448,7 +501,7 @@ int scorecard::addScore(int key, Dice dice)
 
 		  // 3 OF A KIND
 		  // [3,3,3,5,6,]
-	case 7:
+	case 8:
 
 		check = 0;
 		count = 0;
@@ -476,7 +529,7 @@ int scorecard::addScore(int key, Dice dice)
 		// 4 OF A KIND
 		// [1,1,1,1,4]
 		// [2,5,5,5,5]
-	case 8:
+	case 9:
 		check = dice.getValue(dice.dieArray[0]);
 		count = 0;
 
@@ -503,7 +556,7 @@ int scorecard::addScore(int key, Dice dice)
 		// [1,1,1,5,5]
 		// [2,2,4,4,4]
 		// There is likely a way to optomize this, at a loss how though, if you guys can figure it out, please change this! - Adrian Humphrey
-	case 9:
+	case 10:
 		check1 = 0;
 		check2 = 0;
 		if (dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1]) && dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[2]) ||
@@ -524,8 +577,8 @@ int scorecard::addScore(int key, Dice dice)
 
 		// SMALL STRAIGHT (four number sequence)
 		// [1,2,3,4,6]
-		// [1,3,4,5,6]
-	case 10:
+		// [1,3,4,5,6]  
+	case 11:
 
 		countAcending = 0;
 		countDecending = 0;
@@ -535,7 +588,7 @@ int scorecard::addScore(int key, Dice dice)
 				countAcending++;
 			}
 		}
-		if (countAcending == 3) {
+		if (countAcending >= 3) {
 			lowerScore += 30;
 			break;
 		}
@@ -551,30 +604,31 @@ int scorecard::addScore(int key, Dice dice)
 		break;
 		// LARGE STRAIGHT (five number sequence)
 		// [1,2,3,4,5]
-	case 11:
+	case 12:
 		count = 0;
 		for (int j = 0; j < 4; j++) {
 			if ((dice.getValue(dice.dieArray[j])+1) == dice.getValue(dice.dieArray[j + 1])) {
 				count++;
 			}
 		}
-		if (count == 3) {
+		if (count == 4) {
 			lowerScore += 40;
 			break;
 		}
 		break;
 		// YAHTZEE AND YAHTZEE BONUS
 		// [1,1,1,1,1]
-	case 12:
+	case 13:
 		break;
 
 		// CHANCE
 		// Adds up all of the dice
-	case 13:
+	case 14:
 
 		for (int i = 0; i < 5; i++) {
 			lowerScore += dice.getValue(dice.dieArray[i]);
 		}
+		break;
 	}
 
 	grandScore = lowerScore + upperScore;
