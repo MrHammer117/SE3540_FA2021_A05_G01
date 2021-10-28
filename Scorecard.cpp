@@ -377,13 +377,6 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 1) { count++; }
 
-		/*
-		if (count == 0) {
-			std::cout << "Invalid: No instances of the desiered number.";
-			break;
-		}
-		else
-		*/
 			upperScore += (count * 1);
 
 		break;
@@ -397,13 +390,6 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 2) { count++; }
 
-		/* Not needed as one may want to score 0 in a zone
-		if (count == 0) {
-			std::cout << "Invalid: No instances of the desiered number.";
-			break;
-		}
-		else
-		*/
 			upperScore += (count * 2);
 
 		break;
@@ -415,13 +401,6 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 3) { upperScore += 3; }
 
-		/* Not needed as one may want to score 0 in a zone
-		if (count == 0) {
-			std::cout << "Invalid: No instances of the desiered number.";
-			break;
-		}
-		else
-		*/
 			upperScore += (count * 3);
 
 		break;
@@ -433,13 +412,6 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 4) { count++; }
 
-		/* Not needed as one may want to score 0 in a zone 
-		if (count == 0) {
-			std::cout << "Invalid: No instances of the desiered number.";
-			break;
-		}
-		else
-		*/
 			upperScore += (count * 4);
 
 
@@ -452,13 +424,6 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 5) { count++; }
 
-		/* Not needed as one may want to score 0 in a zone
-		if (count == 0) {
-			std::cout << "Invalid: No instances of the desiered number.";
-			break;
-		}
-		else
-		*/
 			upperScore += (count * 4);
 
 
@@ -472,13 +437,6 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 6) { upperScore += 6; }
 
-		/* Not needed as one may want to score 0 in a zone
-		if (count == 0) {
-			std::cout << "Invalid: No instances of the desiered number.";
-			break;
-		}
-		else
-		*/
 			upperScore += (count * 4);
 
 		break;
