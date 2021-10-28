@@ -8,8 +8,8 @@
 
 
 
-//creates an new scorecard, fills the score array with -1 
-//and the used array with false 
+//creates an new scorecard, fills the score array with -1
+//and the used array with false
 void scorecard::CreateScorecard() {
 	for (int i = 0; i < 13; i++) {
 		SetScore(scores[i], used[i], -1, false);
@@ -51,7 +51,7 @@ void scorecard::DisplayScoringRules() {
 
 void scorecard::DisplayScoreCard() {
 
-	//prints scorecard with its current scores... prints EMPTY if not been used ";	
+	//prints scorecard with its current scores... prints EMPTY if not been used ";
 
 	cout << "\nPlease select an EMPTY category(1-13)";
 	cout << "\n*** Upper Section ***";
@@ -167,7 +167,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 	DisplayScoreCard();
 
 	switch (user_input) {
-	case '1':
+	case 1:
 		if (used[0] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -179,7 +179,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '2':
+	case 2:
 		if (used[1] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -191,7 +191,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '3':
+	case 3:
 		if (used[2] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -203,7 +203,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '4':
+	case 4:
 		if (used[3] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -215,7 +215,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '5':
+	case 5:
 		if (used[4] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -227,7 +227,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '6':
+	case 6:
 		if (used[5] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -239,7 +239,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '7':
+	case 7:
 		if (used[6] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -251,7 +251,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '8':
+	case 8:
 		if (used[7] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -263,7 +263,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '9':
+	case 9:
 		if (used[8] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -275,7 +275,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '10':
+	case 10:
 		if (used[9] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -287,7 +287,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '11':
+	case 11:
 		if (used[10] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -298,7 +298,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 		{
 			cout << "This catogory is already filled please select another one.";
 		}
-	case '12':
+	case 12:
 		if (used[11] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -310,7 +310,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '13':
+	case 13:
 		if (used[12] == false)
 		{
 			temp_score = addScore(user_input, dice);
@@ -322,7 +322,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
-	case '14':
+	case 14:
 		if (used[11] == true)
 		{
 			temp_score = addScore(user_input, dice);
@@ -524,7 +524,7 @@ int scorecard::addScore(int key, Dice dice)
 
 		// SMALL STRAIGHT (four number sequence)
 		// [1,2,3,4,6]
-		// [1,3,4,5,6]  
+		// [1,3,4,5,6]
 	case 10:
 
 		countAcending = 0;
