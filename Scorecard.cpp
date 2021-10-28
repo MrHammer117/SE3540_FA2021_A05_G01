@@ -363,7 +363,7 @@ int scorecard::addScore(int key, Dice dice)
 {
 
 	// Goes to all of the spots in myScorecard.used and then gets the score. If myScorecard.used[i] != true then,
-			 // it will go to the next.
+	// it will go to the next.
 
 	int check = 0;
 	int count = 0;
@@ -406,7 +406,7 @@ int scorecard::addScore(int key, Dice dice)
 
 		break;
 
-		// THREES
+	// THREES
 	case 3:
 		// Goes through all of the dice and if they equal 3. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 3 to upperScore.
@@ -417,7 +417,7 @@ int scorecard::addScore(int key, Dice dice)
 
 		break;
 
-		// FOURS
+	// FOURS
 	case 4:
 		// Goes through all of the dice and if they equal 4. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 4 to upperScore.
@@ -429,7 +429,7 @@ int scorecard::addScore(int key, Dice dice)
 
 		break;
 
-		// FIVES
+	// FIVES
 	case 5:
 		// Goes through all of the dice and if they equal 5. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 5 to upperScore.
@@ -442,7 +442,7 @@ int scorecard::addScore(int key, Dice dice)
 		break;
 
 
-		// SIXES
+	// SIXES
 	case 6:
 		// Goes through all of the dice and if they equal 6. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 6 to upperScore.
@@ -454,7 +454,7 @@ int scorecard::addScore(int key, Dice dice)
 		break;
 
 
-		 // TOP BONUS
+	// TOP BONUS
 	case 7:
 
 		if(grandScore >= 63)
@@ -463,9 +463,9 @@ int scorecard::addScore(int key, Dice dice)
 		break;
 
 
-		///////////////////////
-		// LOWER SCORE SHEET //
-		///////////////////////
+	///////////////////////
+	// LOWER SCORE SHEET //
+	///////////////////////
 
 
 	// 3 OF A KIND
