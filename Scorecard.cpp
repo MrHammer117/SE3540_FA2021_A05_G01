@@ -284,6 +284,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 		}
 		else
 		{
+		cout << "\n 8)'4 of a Kind': " << getScore(7);
 			cout << "This catogory is already filled please select another one.";
 		}
 		break;
