@@ -396,7 +396,6 @@ int scorecard::addScore(int key, Dice dice)
 
 	// ACES
 	case 1:
-
 		// Goes through all of the dice and if they equal 1. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 1 to upperScore.
 		for (int j = 0; j < 5; j++) {
@@ -407,8 +406,6 @@ int scorecard::addScore(int key, Dice dice)
 
 	// TWOS
 	case 2:
-
-		count = 0;
 		// Goes through all of the dice and if they equal 2. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 2 to upperScore.
 		for (int j = 0; j < 5; j++) {
@@ -418,18 +415,18 @@ int scorecard::addScore(int key, Dice dice)
 		upperScore += (count * 2);
 		return (count * 2);
 
-		// THREES
+	// THREES
 	case 3:
 		// Goes through all of the dice and if they equal 3. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 3 to upperScore.
 		for (int j = 0; j < 5; j++) {
 			if (dice.getValue(dice.dieArray[j]) == 3) { upperScore += 3; }
 		}
-			
+
 			upperScore += (count * 3);
 			return (count * 3);
 
-		// FOURS
+	// FOURS
 	case 4:
 		// Goes through all of the dice and if they equal 4. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 4 to upperScore.
@@ -439,7 +436,7 @@ int scorecard::addScore(int key, Dice dice)
 			upperScore += (count * 4);
 			return (count * 4);
 
-		// FIVES
+	// FIVES
 	case 5:
 		// Goes through all of the dice and if they equal 5. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 5 to upperScore.
@@ -448,7 +445,8 @@ int scorecard::addScore(int key, Dice dice)
 
 			upperScore += (count * 5);
 			return (count * 5);
-		// SIXES
+
+	// SIXES
 	case 6:
 		// Goes through all of the dice and if they equal 6. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 6 to upperScore.
@@ -459,11 +457,13 @@ int scorecard::addScore(int key, Dice dice)
 			return (count * 6);
 
 
-		 // TOP BONUS
+	// TOP BONUS
 	case 7:
 
-		if(grandScore >= 63)
-			grandScore += 35;
+		if(grandScore >= 63){
+			upperScore += 35;
+			return 35;
+		}
 
 		break;
 
@@ -495,7 +495,7 @@ int scorecard::addScore(int key, Dice dice)
 		if (count >= 3) {
 			for (int i = 0; i < 5; i++)
 				newVal += dice.getValue(dice.dieArray[i]);
-				upperScore += dice.getValue(dice.dieArray[i]);
+				lowerScore += dice.getValue(dice.dieArray[i]);
 		}
 
 		return newVal;
@@ -504,7 +504,7 @@ int scorecard::addScore(int key, Dice dice)
 	// [1,1,1,1,3]
 	// [3,5,5,5,5]
 	case 9:
-	
+
 		check = 0;
 		count = 0;
 
@@ -512,6 +512,7 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++) {
 
 			if (dice.getValue(dice.dieArray[j]) != check) {
+
 				check = dice.getValue(dice.dieArray[j]);
 			}
 			else {
@@ -521,29 +522,32 @@ int scorecard::addScore(int key, Dice dice)
 
 
 		if (count >= 4) {
-			for (int i = 0; i < 5; i++)
-				upperScore += dice.getValue(dice.dieArray[i]);
+			for (int i = 0; i < 5; i++){
+				lowerScore += dice.getValue(dice.dieArray[i]);
+				newVal += dice.getValue(dice.dieArray[i]);
 			}
+		}
 
-		break;
+		return newVal;
 
 
 	// FULL HOUSE (3 of a kind AND two of a kind)
 	// [1,1,1,5,5]
 	// [2,2,4,4,4]
 	case 10:
-		
+
 		//if (3 of a kind && 2 of a kind) || (2 of a kind && 3 of a kind)
 		if (((dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1])) && (dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2])) && // 3 of a kind
-			(dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4])) && //two of a kind 
+			(dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4])) && //two of a kind
 			(dice.getValue(dice.dieArray[2]) != dice.getValue(dice.dieArray[3]))) || //not 4 of a kind
 			((dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1])) && //two of a kind
 			(dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3])) && (dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4])) && //3 of a kind
 			(dice.getValue(dice.dieArray[1]) != dice.getValue(dice.dieArray[2])))) //not 3 of kind in first 3 die
 			{
 				lowerScore += 25; //add 25 to lowerScore
+				return 25;
 			}
-			
+
 
 
 
@@ -576,9 +580,9 @@ int scorecard::addScore(int key, Dice dice)
 
 		if (countDecending >= 3) {
 			lowerScore += 30;
-			break;
+			return 30;
 		}
-		break;
+
 
 	// LARGE STRAIGHT (five number sequence)
 	// [1,2,3,4,5]
@@ -592,10 +596,9 @@ int scorecard::addScore(int key, Dice dice)
 		}
 		if (count == 3) {
 			lowerScore += 40;
-			break;
+			return 40;
 		}
 
-		break;
 
 
 	// YAHTZEE AND YAHTZEE BONUS
@@ -610,21 +613,21 @@ int scorecard::addScore(int key, Dice dice)
 				count++;
 		}
 
-		if(count == 5)
+		if(count == 5){
 			lowerScore += 50;
+			return 50;
+		}
 
-
-		break;
 
 	// CHANCE
 	// Adds up all of the dice
 	case 14:
 
 		for (int i = 0; i < 5; i++) {
+			newVal += dice.getValue(dice.dieArray[i]);
 			lowerScore += dice.getValue(dice.dieArray[i]);
 		}
+		return newVal;
 	}
-
-	grandScore = lowerScore + upperScore;
 
 }
