@@ -21,7 +21,6 @@ void Game::play(){
     string word;
     int checkCategory = 0;
     string word2;
-    string word3;
     int num = 0; 
     Dice newDice;
     scorecard card;
@@ -87,46 +86,36 @@ void Game::play(){
      //Asks for user input if they want to play or leave the game.
     cin >> word;
 
-// Leaves game if user input is stop/
+// Leaves game if user input is stop
      if (word == "stop") {
          cout << "Leaving game.";
      }
 
-     // Checks for errors and reasks user if they want to play the game.
-     if (word != "stop" && word != "play") {
-         cout << "Error! Please try again.";
-         cout << "Hello. Welcome to Yahtzee." << endl;
-         cout << "Type 'play" " Enter 'yes' to roll the dice." << endl;
-         cin >> word2;
-     };
-     // If user wants to play the game. They will be asked if the want to roll the dice.
-     if (word == "play")
-     cout << "Let's get started!" << endl;
-    };
+// Checks for errors
+     
+    if (word != "play" && word! = "stop"){
+        cout << "Error. Please try again.";
+        cout << "Hello. Welcome to Yahtzee." << endl;
+        cout << "Type 'play' to play Yahtzee" << endl;
+        cout << "Type 'stop' if you do not want to play the game." << endl;
+    
+if (word=="play"){
+ while (checkCategory!=14){
 
-        // If they do not want to roll the dice it leaves the game.
-       
-    // Checks if user input is invalid.
-         if (word2 != "yes" && word2 != "stop") {
-             cout << "Input not valid. Please try again." << endl;
-             cout << "Would you like to roll the dice?" << endl;
-             cout << " Enter 'yes' to roll the dice." << endl;
-             cout <<" Enter 'stop' to exit the game." << endl;
-             cin >> word2;
-         };
+        cout << "Would you like to roll the dice?" << endl;
+        cout << "Type 'yes' if you would like to roll." << endl;
+        cout << "Type 'no' if you do not want to exit game" << endl;
+        cin >> word2;
 
-    // Will roll dice if user wants to roll dice.
-           if (word2 == "stop") {
-             cout << "Leaving game" << endl;
-         };
-         
-          if (word2 == "yes") {
-             cout << "Rolling Dice..." << endl;
-               while (checkCategory != 14) {
+        if(word2 == "no"){
+            cout << "Leaving game."
+        }
+        if(word2! == "yes" && word2!= "no"){
+            cout << "Leaving game." << endl;
+        }
+        if(word2 == "yes"){
 
-           if (word2 == "yes") {
-             cout << "Rolling Dice..." << endl;
-        while (checkCategory!=14 || word2 == "yes")
+
 
              for (int i = 0; i < 5; i++) {
                     newDice.dieArray[i].value = newDice.rollDice(newDice.dieArray[i]);
@@ -152,8 +141,11 @@ void Game::play(){
                     cin >> num;
                     card.selectCat(num, newDice);
                 checkCategory++;
+    
             
-         }
+         };
+        };
+    };
 
             
 };
