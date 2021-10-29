@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <ctime>
 #include <string>
+#include <stdlib.h>
 #include "Dice.h"
 #include "Scorecard.h"
 using namespace std;
@@ -12,70 +13,9 @@ using namespace std;
 class Game {
 public:
     void play();
-    int totalresult;
-    
 };
-/*
-void Game::play(){
-    srand(time(0));
-    string word;
-    int checkCategory = 0;
-    string word2;
-    int num = 0; 
-    Dice newDice;
-    scorecard card;*/
-    
-        
-       /* cout << "Hello. Welcome to Yahtzee." << endl;
-        cout << "Type 'play' or 'Play' to play Yahtzee." << endl;
-        cout << "Type 'stop' or 'Stop' if you do not want to play the game." << endl;
-        cout << endl;
-        cout << "-----------------------------------" << endl;
-        cout << endl;
-        cin >> word;
-        if (word == "stop" || word == "Stop"){
-            cout << "Leaving game.";
-        }
-        if (word!= "stop" || word!= "Stop"){
 
-        }
-        if (word == "play" || word == "Play") {
-            while (checkCategory != 14 || (word2 == "yes" || word2 == "Yes")) {
-                for (int i = 0; i < 5; i++) {
-                    newDice.dieArray[i].value = newDice.rollDice(newDice.dieArray[i]);
-                }
-                newDice.sortDice();
-                cout << endl;
-                cout << "-----------------------------------" << endl;
-                cout << endl;
-                card.DisplayScoringRules();
-                cout << endl;
-                cout << "-----------------------------------" << endl;
-                cout << endl;
-                card.DisplayScoreCard();
-                cout << endl;
-                cout << "-----------------------------------" << endl;
-                cout << endl;
-                for (int i = 0; i < 5; i++) {
-                    cout << " |" << newDice.getValue(newDice.dieArray[i]) << "| ";
-                }
-                
-                    cout << endl;
-                    cout << "Please input number of category you would like" << endl;
-                    cin >> num;
-                    card.selectCat(num, newDice);
-                checkCategory++;
-            }
-        }
-
-    cout << "Exiting Game..." << endl;
-}
-    
-    */
-    
-    
-    
-    
+      
    /* 
     
     // Menu options for game.
@@ -175,24 +115,35 @@ void Game::play() {
 
 
     
-    while (allFilled == false) { //while the scorecard is not completely filled with scores
-       
-        
+    for (int i = 0; i < 13; i++) { //while the scorecard is not completely filled with scores
 
-        //checks used[] array in scorecard to see if all elements are !EMPTY
-        for (int i = 0; i < 14; i++) {
-            if (card.used[i] == false) {
-                allFilled = false;
+
+        cout << "\n" << "Roll? (Y/N)" << endl;
+        cin >> word;
+        if (word == "Y" || word == "y") {
+            for (int i = 0; i < 5; i++) {
+                newDice.dieArray[i].value = newDice.rollDice(newDice.dieArray[i]);
             }
-            else { allFilled = true; }
         }
-
-
-        for (int i = 0; i < 5; i++) {
-            newDice.dieArray[i].value = newDice.rollDice(newDice.dieArray[i]);
+        else if (word == "N" || word == "n"){
+            break;
         }
-
-
+        else {
+            while ((word != "Y" || word != "y") || (word != "N" || word != "n")) {
+                cout << "\n" << "Roll? (Y/N)" << endl;
+                cin >> word;
+                if (word == "Y" || word == "y") {
+                    for (int i = 0; i < 5; i++) {
+                        newDice.dieArray[i].value = newDice.rollDice(newDice.dieArray[i]);
+                    }
+                    break;
+                }
+                else if (word == "N" || word == "n") {
+                    cout << "\n" << "Your Yahtzee score is " << card.setFinalScore();
+                    exit(EXIT_FAILURE);
+                }
+            } 
+        }
         newDice.sortDice();
 
         cout << "\nYour dice:";
@@ -206,8 +157,8 @@ void Game::play() {
         cout << "Please input number of category you would like" << endl;
         cin >> num;
         while (card.selectCat(num, newDice) == false) { //if the category has already been filled ask user until a valid category is given
-            cout << "\nPlease choose an EMPTY category:\n";
-            cin >> num;
+               cout << "\nPlease choose an EMPTY category:\n";
+               cin >> num;
         }
        
 
@@ -215,7 +166,7 @@ void Game::play() {
         card.DisplayScoreCard();//print the scorecard and its values at the end of every round
     
     }
-    //cout << "Your Yahtzee score is " << card.SetFinalScore();
+    card.DisplayFinalScoreCard();
 
 }
        
@@ -223,5 +174,6 @@ void Game::play() {
          Game newGame;
          newGame.play(); // Runs the game
 
+         return 0;
      }
 

@@ -9,17 +9,13 @@ using namespace std;
 
 class scorecard {
 private:
-	int bonus = 100;
 	bool newSC = false;
 	int lowerScore = 0;
 	int upperScore = 0;
-	int grandScore = 0;
-	int final_score;
-	int total;
-	int score[14];
+	int score[13];
 	
 public:
-	bool used[14] = { false, false, false, false, false, false, false, false, false, false, false, false, false, false };
+	bool used[13] = { false, false, false, false, false, false, false, false, false, false, false, false, false };
 
 	scorecard();
 	
@@ -32,6 +28,10 @@ public:
 	bool selectCat(int user_input, Dice dice);
 
 	int setFinalScore();
+
+	void DisplayFinalScoreCard();
+
+	int upperBonus();
 
 	int addScore(int key, Dice dice);
 

@@ -6,13 +6,11 @@
 //creates an new scorecard, fills the score array with -1
 //and the used array with false
 scorecard::scorecard() {
-	int bonus = 100;
 	bool newSC = false;
 	int lowerScore = 0;
 	int upperScore = 0;
-	int grandScore = 0;
-	int score[15];
-	bool used[15];
+	int score[13];
+	bool used[13];
 }
 
 //gets the score at a particular category
@@ -44,6 +42,44 @@ void scorecard::DisplayScoringRules() {
 	cout << "\n 14)'Bonus' - Roll 5 of the same number. Worth 100 points after you have used YAHTZEE." << endl;
 }
 
+
+void scorecard::DisplayFinalScoreCard() {
+
+	// will print final scorecard with bonus for total upper score before the bonus, bonus score, total upper with bonus
+	//total of lower score and the grand total
+
+	cout << "\nA meaningful message\n";
+	cout << "\n*** Upper Section ***";
+	cout << "\n 1)'Aces': " << getScore(0);
+	cout << "\n 2)'Twos': " << getScore(1);
+	cout << "\n 3)'Threes: " << getScore(2);
+	cout << "\n 4)'Fours': " << getScore(3);
+	cout << "\n 5)'Fives': " << getScore(4);
+	cout << "\n 6)'Sixes': " << getScore(5);
+	cout << "\n 'Total Score': " << upperScore;
+	cout << "\n 'Bonus: " << upperBonus();
+	upperScore += upperBonus();
+	cout << "\n 'Total of Upper Section': " << upperScore;
+	cout << "\n*** Lower Section ***";
+	cout << "\n 7)'3 of a Kind': " << getScore(6);
+	cout << "\n 8)'4 of a Kind': " << getScore(7);
+	cout << "\n 9)'Full House': " << getScore(8);
+	cout << "\n 10)'Small Straight': " << getScore(9);
+	cout << "\n 11)'Large Straight': " << getScore(10);
+	cout << "\n 12)'YAHTZEE!': " << getScore(11);
+	cout << "\n 13)'Chance': " << getScore(12);
+	cout << "\n 14)'Bonus': " << getScore(13) << endl;
+	cout << "\n 'Total of Lower Section': " << lowerScore;
+	cout << "\n 'Grand Total': " << setFinalScore();
+}
+
+int scorecard::upperBonus(){
+	int bonus = 0;
+	if (upperScore >= 63) { 
+		bonus = 35;
+	}
+return bonus;
+}
 
 void scorecard::DisplayScoreCard() {
 
@@ -180,11 +216,13 @@ bool scorecard::selectCat(int user_input, Dice dice)
 // This method adds all the scores in the scores[] into final score
 int scorecard::setFinalScore()
 {
-	for (int i = 0; i < 14; i++)
+	/*
+	for (int i = 0; i < 13; i++)
 	{
 		final_score += score[i];
 	}
-	return(final_score);
+	*/
+	return(upperScore + lowerScore);
 }
 
 
