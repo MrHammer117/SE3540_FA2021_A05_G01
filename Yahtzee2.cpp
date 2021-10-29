@@ -112,10 +112,10 @@ void Game::play(){
          };
     // Checks if user input is invalid.
          if (word2 != "yes" && word2 != "stop") {
-             cout << "Input not valid. Please try again.";
-             cout << "Would you like to roll the dice?"
-             " Enter 'yes' to roll the dice."
-             " Enter 'stop' to exit the game." << endl;
+             cout << "Input not valid. Please try again." << endl;
+             cout << "Would you like to roll the dice?" << endl;
+             cout << " Enter 'yes' to roll the dice." << endl;
+             cout <<" Enter 'stop' to exit the game." << endl;
              cin >> word2;
          };
 
