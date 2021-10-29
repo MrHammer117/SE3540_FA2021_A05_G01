@@ -13,12 +13,13 @@ private:
 	int lowerScore = 0;
 	int upperScore = 0;
 	int score[13];
-	
+	int yahtzeeCount = -1;
+
 public:
 	bool used[13] = { false, false, false, false, false, false, false, false, false, false, false, false, false };
 
 	scorecard();
-	
+
 	int getScore(int categoryIndex);
 
 	void DisplayScoringRules();
@@ -33,7 +34,9 @@ public:
 
 	int upperBonus();
 
+	int getYahtzeeCount();
+
 	int addScore(int key, Dice dice);
 
 };
-#endif;
+#endif

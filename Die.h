@@ -14,7 +14,7 @@ Modified last: 10/26/21
 
 using namespace std;
 class Die {
-public: 
+public:
 	// Initalizes value of the roll
 	Die();
 
@@ -24,4 +24,4 @@ public:
 	// roll value
 	int value = 0;
 };
-#endif;
+#endif

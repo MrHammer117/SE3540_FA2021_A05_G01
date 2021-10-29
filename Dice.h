@@ -31,4 +31,4 @@ public:
 
 	Die dieArray[5];
 };
-#endif;
+#endif

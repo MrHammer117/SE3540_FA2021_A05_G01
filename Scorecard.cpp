@@ -10,6 +10,7 @@ scorecard::scorecard() {
 	int upperScore = 0;
 	int score[13];
 	bool used[13];
+	int yahtzeeCount = -1;
 }
 
 //gets the score at a particular category
@@ -67,17 +68,24 @@ void scorecard::DisplayFinalScoreCard() {
 	cout << "\n 11)'Large Straight': " << getScore(10);
 	cout << "\n 12)'YAHTZEE!': " << getScore(11);
 	cout << "\n 13)'Chance': " << getScore(12);
-	cout << "\n 14)'Bonus': " << getScore(13) << endl;
+	cout << "\n 14)'Yahtzee Bonus': " << getYahtzeeCount() << endl;
 	cout << "\n 'Total of Lower Section': " << lowerScore;
 	cout << "\n 'Grand Total': " << setFinalScore();
 }
 
 int scorecard::upperBonus(){
 	int bonus = 0;
-	if (upperScore >= 63) { 
+	if (upperScore >= 63) {
 		bonus = 35;
 	}
 return bonus;
+}
+
+// Gets how ever many yahtzees have been gotten and multiples them by 100.
+int scorecard::getYahtzeeCount(){
+
+	lowerScore += (yahtzeeCount * 100);
+	return yahtzeeCount * 100;
 }
 
 void scorecard::DisplayScoreCard() {
@@ -181,8 +189,8 @@ void scorecard::DisplayScoreCard() {
 
 bool scorecard::selectCat(int user_input, Dice dice)
 {
-	int temp_score = NULL;
-	
+	int temp_score = 0;
+
 
 	if (used[user_input-1] == false)
 	{
@@ -416,8 +424,7 @@ int scorecard::addScore(int key, Dice dice)
 
 		return 0;
 
-
-	// YAHTZEE AND YAHTZEE BONUS - unsure
+	// YAHTZEE AND YAHTZEE BONUS
 	// [1,1,1,1,1]
 	case 12:
 
@@ -429,7 +436,8 @@ int scorecard::addScore(int key, Dice dice)
 			}
 		}
 
-		if(count == unknown5){
+		if(count == 5){
+			yahtzeeCount++;
 			lowerScore += 50;
 			return 50;
 		}
@@ -447,5 +455,7 @@ int scorecard::addScore(int key, Dice dice)
 		}
 		return newVal;
 	}
+
+	return 0;
 
 }
