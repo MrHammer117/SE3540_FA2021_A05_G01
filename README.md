@@ -16,7 +16,7 @@ Instructions: Yahtzee is a dice game in which a player will be able to roll all 
 - Yahtzee: If all 5 dice you rolled are the same number you can get 50 points. If you get more than 1 Yahtzee you can add 100 points to your next Yahtzee. However if you score a 0 on Yahtzee you cannot score any points.
 - Chance: Adds up all of the dices.
 
-If you score a total of 63 points or higher in the section ones, twos, threes, fours, and fives, you will receive a bonus of 35 points.
+If you score a total of 63 points or higher in the section ones, twos, threes, fours,  fives, and sixes you will receive a bonus of 35 points.
 
 However each player can only use each category once. If a player does not meet the criteria needed to score points and chooses the category the player will receive 0 points for that particular category.
 
