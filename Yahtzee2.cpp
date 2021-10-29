@@ -57,7 +57,6 @@ void Game::play(){
                 cout << endl;
                 cout << "-----------------------------------" << endl;
                 cout << endl;
-                
                 for (int i = 0; i < 5; i++) {
                     cout << " |" << newDice.getValue(newDice.dieArray[i]) << "| ";
                 }
@@ -103,71 +102,53 @@ void Game::play(){
      // If user wants to play the game. They will be asked if the want to roll the dice.
      if (word == "play")
      cout << "Enter 'yes' to roll the dice."<< endl;
-    cout <<" Enter 'no' to not roll the dice." << endl;
-    cout << "Enter 'stop' to stop the game." << endl;
+    cout << "Enter 'stop' to exit the game." << endl;
          cin >> word2;
+    };
 
-        // If they do not want to roll the dice it asks if the user wants to leave the game, continue to play the game, or return to main menu.
-         if (word2 == "no") {
-             cout << "Would you like to leave the game? "
-             cout << "Enter 'yes' to leave the game." << endl;
-              cout << "Enter 'no' to continue the game" << endl;
-              cout << "Enter 'return' to return to main menu." << endl;
-             cin >> word3;
-<<<<<<< HEAD
-=======
-         };
-//If user types yes they will leave the game.
->>>>>>> 4f5ccdd2e6cf4b1cc0645891f2a10c89b3713ceb
-             if (word3 == "yes"){
-                 "Leaving game. Goodbye."
-             };
-// If user types return they will return to main menu.
-             if (word3 == "return"){
-     cout << "Hello. Welcome to Yahtzee." << endl;
-     cout << "Type 'play' to play Yahtzee." << endl;
-     cout << "Type 'stop' if you do not want to play the game." << endl;
-     cin >> word;
-     };
-// If user input is no they will be asked again if they want to roll the dice.
-             if (word3 == "no"){
-cout << "Would you like to roll the dice? Enter 'yes' to roll the dice." << endl;
-    cout <<" Enter 'no' to not roll the dice." << endl;
-    cout << "Enter 'stop' to stop the game." << endl;
-         cin >> word2;
-             };
-<<<<<<< HEAD
-=======
-            
-    // If user answers a invalid response it will ask them if they want to roll the dice.        
-      if (word3!= "yes" && word3! == "no" && word3!== "return"){
-    cout << "Error. Please try again."
-    cout << "Would you like to roll the dice? Enter 'yes' to roll the dice." << endl;
-    cout <<" Enter 'no' to not roll the dice." << endl;
-    cout << "Enter 'stop' to stop the game." << endl;
-         cin >> word2;
-             };
->>>>>>> 4f5ccdd2e6cf4b1cc0645891f2a10c89b3713ceb
-         }
-    // If users want to stop the game they will close the game.
+        // If they do not want to roll the dice it leaves the game.
          if (word2 == "stop") {
-             cout << "Closing game. Goodbye";
-<<<<<<< HEAD
-         }
-=======
+             cout << "Leaving game" << endl;
          };
     // Checks if user input is invalid.
->>>>>>> 4f5ccdd2e6cf4b1cc0645891f2a10c89b3713ceb
-         if (word2 != "no" && word2 != "yes" && word2 != "stop") {
+         if (word2 != "yes" && word2 != "stop") {
              cout << "Input not valid. Please try again.";
-             cout << "Would you like to roll the dice? Enter 'yes' to roll the dice. Enter 'no' to not roll the dice." << endl;
+             cout << "Would you like to roll the dice?"
+             " Enter 'yes' to roll the dice."
+             " Enter 'stop' to exit the game." << endl;
              cin >> word2;
          };
 
     // Will roll dice if user wants to roll dice.
           if (word2 == "yes") {
              cout << "Rolling Dice..." << endl;
-             
+               while (checkCategory != 14) {
+          
+
+             for (int i = 0; i < 5; i++) {
+                    newDice.dieArray[i].value = newDice.rollDice(newDice.dieArray[i]);
+                }
+                newDice.sortDice();
+                cout << endl;
+                cout << "-----------------------------------" << endl;
+                cout << endl;
+                card.DisplayScoringRules();
+                cout << endl;
+                cout << "-----------------------------------" << endl;
+                cout << endl;
+                card.DisplayScoreCard();
+                cout << endl;
+                cout << "-----------------------------------" << endl;
+                cout << endl;
+                for (int i = 0; i < 5; i++) {
+                    cout << " |" << newDice.getValue(newDice.dieArray[i]) << "| ";
+                }
+                
+                    cout << endl;
+                    cout << "Please input number of category you would like" << endl;
+                    cin >> num;
+                    card.selectCat(num, newDice);
+                checkCategory++;
             
          }
 
