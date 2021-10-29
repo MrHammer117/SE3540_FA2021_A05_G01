@@ -18,21 +18,28 @@ public:
 
 void Game::play(){
     srand(time(0));
-    string word = "";
+    string word;
     int checkCategory = 0;
-    string word2 = "";
+    string word2;
+    string word3;
     int num = 0; 
     Dice newDice;
     scorecard card;
     
         
-        cout << "Hello. Welcome to Yahtzee." << endl;
-        cout << "Type 'play' to play Yahtzee." << endl;
-        cout << "Type 'stop' if you do not want to play the game." << endl;
+       cout << "Hello. Welcome to Yahtzee." << endl;
+        cout << "Type 'play' or 'Play' to play Yahtzee." << endl;
+        cout << "Type 'stop' or 'Stop' if you do not want to play the game." << endl;
         cout << endl;
         cout << "-----------------------------------" << endl;
         cout << endl;
-        getline(cin, word);
+        cin >> word;
+        if (word == "stop" || word == "Stop"){
+            cout << "Leaving game.";
+        }
+        if (word!= "stop" || word!= "Stop"){
+
+        }
         if (word == "play" || word == "Play") {
             while (checkCategory != 14 || (word2 == "yes" || word2 == "Yes")) {
                 for (int i = 0; i < 5; i++) {
@@ -64,11 +71,19 @@ void Game::play(){
 
     cout << "Exiting Game..." << endl;
 }
-    /*
+    
+    
+    
+    
+    
+    
+    
+    
+    
     cout << "Hello. Welcome to Yahtzee." << endl;
      cout << "Type 'play' to play Yahtzee." << endl;
      cout << "Type 'stop' if you do not want to play the game." << endl;
-        cin >> word;
+    cin >> word;
      if (word == "stop") {
          cout << "Leaving game.";
      }
@@ -80,36 +95,38 @@ void Game::play(){
          cin >> word;
      };
         
-        if (word == "play") {
-             cout << "Would you like to roll the dice? Enter 'yes' to roll the dice. Enter 'no' to not roll the dice. Enter 'stop' to stop the game." << endl;
+    if (word == "play") {
+    cout << "Would you like to roll the dice? Enter 'yes' to roll the dice." << endl;
+    cout <<" Enter 'no' to not roll the dice." << endl;
+    cout << "Enter 'stop' to stop the game." << endl;
          cin >> word2;
 
          if (word2 == "no") {
-             cout << "Would you like to roll the dice? Enter 'yes' to roll the dice. Enter 'no' to not roll the dice." << endl;
-             cin >> word2;
+             cout << "Would like to leave the game. Enter 'yes' to leave the game. Enter 'no' to continue the game" << endl;
+             cin >> word3;
+             if (word3 == "yes"){
+                 "Leaving game. Goodbye."
+             }
+             if (word3 == "no"){
+
+   cout << "Would you like to roll the dice? Enter 'yes' to roll the dice." << endl;
+    cout <<" Enter 'no' to not roll the dice." << endl;
+    cout << "Enter 'stop' to stop the game." << endl;
+         cin >> word2;
+             };
          }
          if (word2 == "stop") {
              cout << "Closing game. Goodbye";
          }
          if (word2 != "no" && word2 != "yes" && word2 != "stop") {
-             cout << "Input not valid. Please try again";
+             cout << "Input not valid. Please try again.";
              cout << "Would you like to roll the dice? Enter 'yes' to roll the dice. Enter 'no' to not roll the dice." << endl;
              cin >> word2;
          };
           if (word2 == "yes") {
              cout << "Rolling Dice..." << endl;
-             Dice object;
-             scoreboard object2;
-             object2.DisplayScoringRules;
-             for (int i = 0; i <= 13; i++) {
-             object.rollDice;
-             object.sortDice;
-             object2.DisplayCat;
-             object2.selectCat;
-             object2.CheckCat;
-             object2.DisplayScorecard;
-         }
-             object2.displayFinalScoreboard;
+             
+            
          }
 
             
