@@ -1,6 +1,7 @@
 # SE3540_FA2021_A05_G01
 
 Instructions: Yahtzee is a dice game in which a player will be able to roll all 5 dice all at once. After one roll the user will be asked to select a category in which they will be able to score in. The different categories are:
+
 Ones: In which all of the dice that rolled a one will be added up.
 Twos: In which all of the dice that rolled a two will be added up.
 Threes: In which all of the dice that rolled a three will be added up.
