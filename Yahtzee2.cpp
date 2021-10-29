@@ -98,6 +98,8 @@ void Game::play(){
         cout << "Hello. Welcome to Yahtzee." << endl;
         cout << "Type 'play' to play Yahtzee" << endl;
         cout << "Type 'stop' if you do not want to play the game." << endl;
+        cin >> word;
+    };
     
 if (word=="play"){
  while (checkCategory!=14){
