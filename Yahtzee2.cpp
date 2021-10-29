@@ -140,6 +140,7 @@ if (word=="play"){
                     cout << "Please input number of category you would like" << endl;
                     cin >> num;
                     card.selectCat(num, newDice);
+                    
                 checkCategory++;
     
             
