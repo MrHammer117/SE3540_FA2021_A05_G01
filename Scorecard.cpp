@@ -285,8 +285,6 @@ int scorecard::addScore(int key, Dice dice)
 			return 35;
 		}
 
-		break;
-
 
 		///////////////////////
 		// LOWER SCORE SHEET //
