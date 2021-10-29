@@ -216,12 +216,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 // This method adds all the scores in the scores[] into final score
 int scorecard::setFinalScore()
 {
-	/*
-	for (int i = 0; i < 13; i++)
-	{
-		final_score += score[i];
-	}
-	*/
+
 	return(upperScore + lowerScore);
 }
 
@@ -311,13 +306,7 @@ int scorecard::addScore(int key, Dice dice)
 		upperScore += (count * 6);
 		return (count * 6);
 
-/*
-	// TOP BONUS - Should this really be a category? I feel this throws off the number system - Adrian Humphrey
-	case 7:
 
-		
-
-*/
 		///////////////////////
 		// LOWER SCORE SHEET //
 		///////////////////////
@@ -455,7 +444,7 @@ int scorecard::addScore(int key, Dice dice)
 			}
 		}
 
-		if(count == 5){
+		if(count == unknown5){
 			lowerScore += 50;
 			return 50;
 		}
