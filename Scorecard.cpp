@@ -6,7 +6,6 @@
 //creates an new scorecard, fills the score array with -1
 //and the used array with false
 scorecard::scorecard() {
-	bool newSC = false;
 	int lowerScore = 0;
 	int upperScore = 0;
 	int score[13];
