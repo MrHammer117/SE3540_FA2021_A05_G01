@@ -35,8 +35,9 @@ void Game::play() {
    cin >> word2;
    if(word2 =="stop"){
        cout << "Leaving game";
+       exit(EXIT_FAILURE);
    }
-   if (word2 != "stop" || word2 != "play"){
+   if (word2 != "stop" && word2 != "play"){
 cout << "Yahtzee" << endl;
 cout << "Type 'play' to play Yahtzee" << endl;
 cout << "Type 'stop' to exit the game" << endl;
@@ -61,7 +62,8 @@ cin >> word2;
             }
         }
         else if (word == "N" || word == "n"){
-            break;
+            cout << "\n" << "Your Yahtzee score is " << card.setFinalScore();
+            exit(EXIT_FAILURE);
         }
         else {
             while ((word != "Y" || word != "y") || (word != "N" || word != "n")) {

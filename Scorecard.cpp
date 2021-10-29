@@ -83,9 +83,13 @@ return bonus;
 
 // Gets how ever many yahtzees have been gotten and multiples them by 100.
 int scorecard::getYahtzeeCount(){
-
-	lowerScore += (yahtzeeCount * 100);
-	return yahtzeeCount * 100;
+	if (yahtzeeCount > -1) {
+		lowerScore += (yahtzeeCount * 100);
+		return yahtzeeCount * 100;
+	}
+	else {
+		return 0;
+	}
 }
 
 void scorecard::DisplayScoreCard() {
