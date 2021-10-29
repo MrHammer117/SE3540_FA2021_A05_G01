@@ -286,13 +286,13 @@ int scorecard::addScore(int key, Dice dice)
 		///////////////////////
 
 
-	// 3 OF A KIND - BROKEN
+	// 3 OF A KIND - FIXED?
 	// [3,3,3,5,6]
 	// [1,2,4,4,4]
 	case 7:
 		check = 0;
 		count = 0;
-
+		/*
 		// Checks if valid dice input. Using checks because the dice are sorted.
 		for (int j = 0; j < 5; j++) {
 
@@ -311,17 +311,35 @@ int scorecard::addScore(int key, Dice dice)
 				lowerScore += dice.getValue(dice.dieArray[j]);
 			}
 		}
-
+		*/
+		if ((dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1])) && (dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2]))) {
+			for (int j = 0; j < 5; j++) {
+				lowerScore += dice.getValue(dice.dieArray[j]);
+				newVal += dice.getValue(dice.dieArray[j]);
+			}
+		}
+		if ((dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2])) && (dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]))) {
+			for (int j = 0; j < 5; j++) {
+				lowerScore += dice.getValue(dice.dieArray[j]);
+				newVal += dice.getValue(dice.dieArray[j]);
+			}
+		}
+		if ((dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3])) && (dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4]))) {
+			for (int j = 0; j < 5; j++) {
+				lowerScore += dice.getValue(dice.dieArray[j]);
+				newVal += dice.getValue(dice.dieArray[j]);
+			}
+		}
 		return newVal;
 
-	// 4 of a kind -- BROKEN
+	// 4 of a kind -- FIXED?
 	// [1,1,1,1,3]
 	// [3,5,5,5,5]
 	case 8:
 
 		check = dice.getValue(dice.dieArray[0]);
 		count = 0;
-
+		/*
 		// Checks if valid dice input. Using checks because the dice are sorted.
 		for (int j = 1; j < 5; j++) {
 			if (check != dice.getValue(dice.dieArray[j])) {
@@ -335,6 +353,22 @@ int scorecard::addScore(int key, Dice dice)
 
 		if (count == 4) {
 			for (int j = 0; j < 5; j++){
+				lowerScore += dice.getValue(dice.dieArray[j]);
+				newVal += dice.getValue(dice.dieArray[j]);
+			}
+		}
+		*/
+
+		if ((dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1])) && (dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2]))
+			&& (dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]))) {
+			for (int j = 0; j < 5; j++) {
+				lowerScore += dice.getValue(dice.dieArray[j]);
+				newVal += dice.getValue(dice.dieArray[j]);
+			}
+		}
+		if ((dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2])) && (dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]))
+			&& (dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4]))) {
+			for (int j = 0; j < 5; j++) {
 				lowerScore += dice.getValue(dice.dieArray[j]);
 				newVal += dice.getValue(dice.dieArray[j]);
 			}

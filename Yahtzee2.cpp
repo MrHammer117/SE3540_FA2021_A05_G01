@@ -27,7 +27,7 @@ void Game::play(){
     scorecard card;
     
         
-       cout << "Hello. Welcome to Yahtzee." << endl;
+        cout << "Hello. Welcome to Yahtzee." << endl;
         cout << "Type 'play' or 'Play' to play Yahtzee." << endl;
         cout << "Type 'stop' or 'Stop' if you do not want to play the game." << endl;
         cout << endl;
@@ -79,7 +79,7 @@ void Game::play(){
     
     
     
-    
+    /*
     cout << "Hello. Welcome to Yahtzee." << endl;
      cout << "Type 'play' to play Yahtzee." << endl;
      cout << "Type 'stop' if you do not want to play the game." << endl;
