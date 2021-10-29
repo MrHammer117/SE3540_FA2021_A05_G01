@@ -101,15 +101,11 @@ void Game::play(){
      };
      // If user wants to play the game. They will be asked if the want to roll the dice.
      if (word == "play")
-     cout << "Enter 'yes' to roll the dice."<< endl;
-    cout << "Enter 'stop' to exit the game." << endl;
-         cin >> word2;
+     cout << "Let's get started!" << endl;
     };
 
         // If they do not want to roll the dice it leaves the game.
-         if (word2 == "stop") {
-             cout << "Leaving game" << endl;
-         };
+       
     // Checks if user input is invalid.
          if (word2 != "yes" && word2 != "stop") {
              cout << "Input not valid. Please try again." << endl;
@@ -120,10 +116,16 @@ void Game::play(){
          };
 
     // Will roll dice if user wants to roll dice.
+           if (word2 == "stop") {
+             cout << "Leaving game" << endl;
+         };
+         
           if (word2 == "yes") {
              cout << "Rolling Dice..." << endl;
                while (checkCategory != 14) {
-          
+
+           if (word2 == "yes") {
+             cout << "Rolling Dice..." << endl;
 
              for (int i = 0; i < 5; i++) {
                     newDice.dieArray[i].value = newDice.rollDice(newDice.dieArray[i]);
