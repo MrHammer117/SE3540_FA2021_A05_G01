@@ -180,20 +180,6 @@ void scorecard::DisplayScoreCard() {
 }
 
 
-/*
-//checks to see if user input is a valid category
-//will probably crash if non integer number is entered
-bool scorecard::IsValidCat(int userInput){
-	if (userInput > 0 && userInput <=13){
-		cout << "Please enter a valid category (1-14)"
-		return false;
-	}
-	return true;
-
-}
-*/
-
-
 bool scorecard::selectCat(int user_input, Dice dice)
 {
 	int temp_score = NULL;
