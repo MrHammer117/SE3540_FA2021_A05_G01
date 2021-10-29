@@ -1,12 +1,7 @@
 //implementation of functions/methods of scorecard Class
 #include <iostream>
-#include <fstream>
-#include <cstdlib>
 #include <string>
 #include "Scorecard.h"
-
-
-
 
 //creates an new scorecard, fills the score array with -1
 //and the used array with false
@@ -24,8 +19,6 @@ scorecard::scorecard() {
 int scorecard::getScore(int categoryIndex) {
 	return score[categoryIndex];
 }
-
-
 
 void scorecard::DisplayScoringRules() {
 
@@ -59,92 +52,93 @@ void scorecard::DisplayScoreCard() {
 	cout << "\nPlease select an EMPTY category(1-13)";
 	cout << "\n*** Upper Section ***";
 
-	if (getScore(0) == -1 && used[0] == false) {
+	if (getScore(0) <= -1 && used[0] == false) {
 		cout << "\n 1)'Aces': EMPTY";
 	}
 	else {
 		cout << "\n 1)'Aces': " << getScore(0);
 	}
-	if (getScore(1) == -1 && used[1] == false) {
+	if (getScore(1) <= -1 && used[1] == false) {
 		cout << "\n 2)'Twos': EMPTY";
 	}
 	else {
 		cout << "\n 2)'Twos': " << getScore(1);
 	}
-	if (getScore(2) == -1 && used[2] == false) {
+	if (getScore(2) <= -1 && used[2] == false) {
 		cout << "\n 3)'Threes': EMPTY";
 	}
 	else {
 		cout << "\n 3)'Threes': " << getScore(2);
 	}
-	if (getScore(3) == -1 && used[3] == false) {
+	if (getScore(3) <= -1 && used[3] == false) {
 		cout << "\n 4)'Fours': EMPTY";
 	}
 	else {
 		cout << "\n 4)'Fours': " << getScore(3);
 	}
-	if (getScore(4) == -1 && used[4] == false) {
+	if (getScore(4) <= -1 && used[4] == false) {
 		cout << "\n 5)'Fives': EMPTY";
 	}
 	else {
 		cout << "\n 5)'Fives': " << getScore(4);
 	}
-	if (getScore(5) == -1 && used[5] == false) {
+	if (getScore(5) <= -1 && used[5] == false) {
 		cout << "\n 6)'Sixes': EMPTY";
 	}
 	else {
 		cout << "\n 6)'Sixes': " << getScore(5);
 	}
 	cout << "\n*** Lower Section ***";
-	if (getScore(6) == -1 && used[6] == false) {
+	if (getScore(6) <= -1 && used[6] == false) {
 		cout << "\n 7)'3 of a Kind': EMPTY";
 	}
 	else {
 		cout << "\n 7)'3 of a Kind': " << getScore(6);
 	}
-	if (getScore(7) == -1 && used[7] == false) {
+	if (getScore(7) <= -1 && used[7] == false) {
 		cout << "\n 8)'4 of a Kind': EMPTY";
 	}
 	else {
 		cout << "\n 8)'4 of a Kind': " << getScore(7);
 	}
-	if (getScore(8) == -1 && used[8] == false) {
+	if (getScore(8) <= -1 && used[8] == false) {
 		cout << "\n 9)'Full House': EMPTY";
 	}
 	else {
 		cout << "\n 9)'Full House': " << getScore(8);
 	}
-	if (getScore(9) == -1 && used[9] == false) {
+	if (getScore(9) <= -1 && used[9] == false) {
 		cout << "\n 10)'Small Straight': EMPTY";
 	}
 	else {
 		cout << "\n 10)'Small Straight': " << getScore(9);
 	}
-	if (getScore(10) == -1 && used[10] == false) {
+	if (getScore(10) <= -1 && used[10] == false) {
 		cout << "\n 11)'Large Straight': EMPTY";
 	}
 	else {
 		cout << "\n 11)'Large Straight': " << getScore(10);
 	}
-	if (getScore(11) == -1 && used[11] == false) {
+	if (getScore(11) <= -1 && used[11] == false) {
 		cout << "\n 12)'YAHTZEE!': EMPTY";
 	}
 	else {
 		cout << "\n 12)'YAHTZEE!': " << getScore(11);
 	}
-	if (getScore(12) == -1 && used[12] == false) {
+	if (getScore(12) <= -1 && used[12] == false) {
 		cout << "\n 13)'Chance': EMPTY";
 	}
 	else {
 		cout << "\n 13)'Chance': " << getScore(12);
 	}
-	if (getScore(13) == -1) {
-		cout << "\n 13)'Bonus': EMPTY";
+	/* - Need to figure out how to better implement this!
+	if (getScore(15) <= -1) {
+		cout << "\n 14)'Bonus': EMPTY";
 	}
 	else {
-		cout << "\n 13)'Bonus': " << getScore(13);
+		cout << "\n 14)'Bonus': " << getScore(13);
 	}
-
+	*/
 
 
 }
@@ -179,6 +173,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 	{
 		cout << "This catogory is already filled please select another one.";
 	}
+	return used[user_input - 1];
 }
 
 // This method adds all the scores in the scores[] into final score
@@ -211,7 +206,7 @@ int scorecard::addScore(int key, Dice dice)
 
 
 		///////////////////////
-		// UPPER SCORE SHEET //
+		// UPPER SCORE SHEET // - Working
 		///////////////////////
 
 
@@ -241,7 +236,7 @@ int scorecard::addScore(int key, Dice dice)
 		// Goes through all of the dice and if they equal 3. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 3 to upperScore.
 		for (int j = 0; j < 5; j++) {
-			if (dice.getValue(dice.dieArray[j]) == 3) { upperScore += 3; }
+			if (dice.getValue(dice.dieArray[j]) == 3) { count++; }
 		}
 			upperScore += (count * 3);
 			return (count * 3);
@@ -271,13 +266,13 @@ int scorecard::addScore(int key, Dice dice)
 		// Goes through all of the dice and if they equal 6. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 6 to upperScore.
 		for (int j = 0; j < 5; j++)
-			if (dice.getValue(dice.dieArray[j]) == 6) { upperScore += 6; }
+			if (dice.getValue(dice.dieArray[j]) == 6) { count++; }
 
 		upperScore += (count * 6);
 		return (count * 6);
 
-
-	// TOP BONUS
+/*
+	// TOP BONUS - Should this really be a category? I feel this throws off the number system - Adrian Humphrey
 	case 7:
 
 		if(grandScore >= 63){
@@ -285,23 +280,23 @@ int scorecard::addScore(int key, Dice dice)
 			return 35;
 		}
 
-
+*/
 		///////////////////////
 		// LOWER SCORE SHEET //
 		///////////////////////
 
 
-	// 3 OF A KIND
+	// 3 OF A KIND - BROKEN
 	// [3,3,3,5,6]
 	// [1,2,4,4,4]
-	case 8:
+	case 7:
 		check = 0;
 		count = 0;
 
 		// Checks if valid dice input. Using checks because the dice are sorted.
 		for (int j = 0; j < 5; j++) {
 
-			if (dice.getValue(dice.dieArray[j]) != check) {
+			if (check != dice.getValue(dice.dieArray[j])) {
 				check = dice.getValue(dice.dieArray[j]);
 			}
 			else {
@@ -319,18 +314,17 @@ int scorecard::addScore(int key, Dice dice)
 
 		return newVal;
 
-	// 4 of a kind
+	// 4 of a kind -- BROKEN
 	// [1,1,1,1,3]
 	// [3,5,5,5,5]
-	case 9:
+	case 8:
 
-		check = 0;
+		check = dice.getValue(dice.dieArray[0]);
 		count = 0;
 
 		// Checks if valid dice input. Using checks because the dice are sorted.
-		for (int j = 0; j < 5; j++) {
-
-			if (dice.getValue(dice.dieArray[j]) != check) {
+		for (int j = 1; j < 5; j++) {
+			if (check != dice.getValue(dice.dieArray[j])) {
 
 				check = dice.getValue(dice.dieArray[j]);
 			}
@@ -339,8 +333,7 @@ int scorecard::addScore(int key, Dice dice)
 			}
 		}
 
-
-		if (count >= 4) {
+		if (count == 4) {
 			for (int j = 0; j < 5; j++){
 				lowerScore += dice.getValue(dice.dieArray[j]);
 				newVal += dice.getValue(dice.dieArray[j]);
@@ -350,10 +343,10 @@ int scorecard::addScore(int key, Dice dice)
 		return newVal;
 
 
-	// FULL HOUSE (3 of a kind AND two of a kind)
+	// FULL HOUSE (3 of a kind AND two of a kind) - WORKING
 	// [1,1,1,5,5]
 	// [2,2,4,4,4]
-	case 10:
+	case 9:
 
 		//if (3 of a kind && 2 of a kind) || (2 of a kind && 3 of a kind)
 		if (((dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1])) && (dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2])) && // 3 of a kind
@@ -369,26 +362,26 @@ int scorecard::addScore(int key, Dice dice)
 
 		return 0;
 
-	// SMALL STRAIGHT (four number sequence)
+	// SMALL STRAIGHT (four number sequence) - Working some of the time
 	// [1,2,3,4,6]
 	// [1,3,4,5,6]
-	case 11:
+	case 10:
 
 		countAcending = 0;
 		countDecending = 0;
 
-		for (int j = 0; j < 3; j++) {
-			if ((dice.getValue(dice.dieArray[j])+1) == dice.getValue(dice.dieArray[j+1])) {
+		for (int j = 0; j < 5; j++) {
+			if ((dice.getValue(dice.dieArray[j])) == dice.getValue(dice.dieArray[j+1])+1) {
 				countAcending++;
 			}
 		}
 
-		if (countAcending == 3) {
+		if (countAcending >= 3) {
 			lowerScore += 30;
 			return 30;
 		}
 
-		for (int j = 4; j >= 0; j--) {
+		for (int j = 4; j > -1; j--) {
 			if ((dice.getValue(dice.dieArray[j])-1) == dice.getValue(dice.dieArray[j - 1])) {
 				countDecending++;
 			}
@@ -402,13 +395,13 @@ int scorecard::addScore(int key, Dice dice)
 		return 0;
 
 
-	// LARGE STRAIGHT (five number sequence)
+	// LARGE STRAIGHT (five number sequence) - Working some of the time
 	// [1,2,3,4,5]
-	case 12:
+	case 11:
 
 		count = 0;
 		for (int j = 0; j < 4; j++) {
-			if (((dice.getValue(dice.dieArray[j]) + 1) == (dice.getValue(dice.dieArray[j] + 1)))) {
+			if (((dice.getValue(dice.dieArray[j]) + 1) == (dice.getValue(dice.dieArray[j+1])))) {
 				count++;
 			}
 		}
@@ -420,9 +413,9 @@ int scorecard::addScore(int key, Dice dice)
 		return 0;
 
 
-	// YAHTZEE AND YAHTZEE BONUS
+	// YAHTZEE AND YAHTZEE BONUS - unsure
 	// [1,1,1,1,1]
-	case 13:
+	case 12:
 
 		count = 1;
 		check = dice.getValue(dice.dieArray[0]);
@@ -442,8 +435,8 @@ int scorecard::addScore(int key, Dice dice)
 
 
 	// CHANCE
-	// Adds up all of the dice
-	case 14:
+	// Adds up all of the dice - WORKING
+	case 13:
 
 		for (int j = 0; j < 5; j++) {
 			newVal += dice.getValue(dice.dieArray[j]);

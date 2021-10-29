@@ -11,7 +11,7 @@ Modified last: 10/26/21
 #pragma once
 #ifndef DICE_H
 #define DICE_H
-# include "Die.h"
+#include "Die.h"
 #include <string>
 
 using namespace std;

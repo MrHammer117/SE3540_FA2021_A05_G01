@@ -1,14 +1,10 @@
+#pragma once
 #ifndef SCORECARD_H
 #define SCORECARD_H
 #include <iostream>
-#include <fstream>
-#include <cstdlib>
 #include <string>
 #include "Dice.h"
-#include "Die.h"
-/*
-#include "Yahtzee2.cpp"
-*/
+
 using namespace std;
 
 class scorecard {
@@ -21,24 +17,23 @@ private:
 	int final_score;
 	int total;
 	int score[14];
-	bool used[14];
+	
 public:
+	bool used[14] = { false, false, false, false, false, false, false, false, false, false, false, false, false, false };
 
 	scorecard();
 	
 	int getScore(int categoryIndex);
 
-	bool selectCat(int user_input, Dice dice);
-
-	int addScore(int key, Dice dice);
-
-	int setFinalScore();
+	void DisplayScoringRules();
 
 	void DisplayScoreCard();
 
-	//bool IsValidCat(int userInput);
+	bool selectCat(int user_input, Dice dice);
 
-	void DisplayScoringRules();
+	int setFinalScore();
+
+	int addScore(int key, Dice dice);
+
 };
-#include "Scorecard.cpp"
-#endif
+#endif;
