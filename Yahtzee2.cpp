@@ -27,7 +27,7 @@ void Game::play(){
     scorecard card;
     
         
-        cout << "Hello. Welcome to Yahtzee." << endl;
+       /* cout << "Hello. Welcome to Yahtzee." << endl;
         cout << "Type 'play' or 'Play' to play Yahtzee." << endl;
         cout << "Type 'stop' or 'Stop' if you do not want to play the game." << endl;
         cout << endl;
@@ -73,57 +73,98 @@ void Game::play(){
     cout << "Exiting Game..." << endl;
 }
     
+    */
     
     
     
     
     
     
-    
-    /*
+    // Menu options for game.
     cout << "Hello. Welcome to Yahtzee." << endl;
      cout << "Type 'play' to play Yahtzee." << endl;
      cout << "Type 'stop' if you do not want to play the game." << endl;
+
+     //Asks for user input if they want to play or leave the game.
     cin >> word;
+
+// Leaves game if user input is stop/
      if (word == "stop") {
          cout << "Leaving game.";
      }
+
+     // Checks for errors and reasks user if they want to play the game.
      if (word != "stop" && word != "play") {
          cout << "Error! Please try again.";
          cout << "Hello. Welcome to Yahtzee." << endl;
-         cout << "Type 'play' to play Yahtzee." << endl;
-         cout << "Type 'stop' if you do not want to play the game." << endl;
-         cin >> word;
+         cout << "Type 'play" " Enter 'yes' to roll the dice." << endl;
+         cin >> word2;
      };
-        
-    if (word == "play") {
-    cout << "Would you like to roll the dice? Enter 'yes' to roll the dice." << endl;
+     // If user wants to play the game. They will be asked if the want to roll the dice.
+     if (word == "play")
+     cout << "Enter 'yes' to roll the dice."<< endl;
     cout <<" Enter 'no' to not roll the dice." << endl;
     cout << "Enter 'stop' to stop the game." << endl;
          cin >> word2;
 
+        // If they do not want to roll the dice it asks if the user wants to leave the game, continue to play the game, or return to main menu.
          if (word2 == "no") {
-             cout << "Would like to leave the game. Enter 'yes' to leave the game. Enter 'no' to continue the game" << endl;
+             cout << "Would you like to leave the game? "
+             cout << "Enter 'yes' to leave the game." << endl;
+              cout << "Enter 'no' to continue the game" << endl;
+              cout << "Enter 'return' to return to main menu." << endl;
              cin >> word3;
+<<<<<<< HEAD
+=======
+         };
+//If user types yes they will leave the game.
+>>>>>>> 4f5ccdd2e6cf4b1cc0645891f2a10c89b3713ceb
              if (word3 == "yes"){
                  "Leaving game. Goodbye."
-             }
+             };
+// If user types return they will return to main menu.
+             if (word3 == "return"){
+     cout << "Hello. Welcome to Yahtzee." << endl;
+     cout << "Type 'play' to play Yahtzee." << endl;
+     cout << "Type 'stop' if you do not want to play the game." << endl;
+     cin >> word;
+     };
+// If user input is no they will be asked again if they want to roll the dice.
              if (word3 == "no"){
-
-   cout << "Would you like to roll the dice? Enter 'yes' to roll the dice." << endl;
+cout << "Would you like to roll the dice? Enter 'yes' to roll the dice." << endl;
     cout <<" Enter 'no' to not roll the dice." << endl;
     cout << "Enter 'stop' to stop the game." << endl;
          cin >> word2;
              };
+<<<<<<< HEAD
+=======
+            
+    // If user answers a invalid response it will ask them if they want to roll the dice.        
+      if (word3!= "yes" && word3! == "no" && word3!== "return"){
+    cout << "Error. Please try again."
+    cout << "Would you like to roll the dice? Enter 'yes' to roll the dice." << endl;
+    cout <<" Enter 'no' to not roll the dice." << endl;
+    cout << "Enter 'stop' to stop the game." << endl;
+         cin >> word2;
+             };
+>>>>>>> 4f5ccdd2e6cf4b1cc0645891f2a10c89b3713ceb
          }
+    // If users want to stop the game they will close the game.
          if (word2 == "stop") {
              cout << "Closing game. Goodbye";
+<<<<<<< HEAD
          }
+=======
+         };
+    // Checks if user input is invalid.
+>>>>>>> 4f5ccdd2e6cf4b1cc0645891f2a10c89b3713ceb
          if (word2 != "no" && word2 != "yes" && word2 != "stop") {
              cout << "Input not valid. Please try again.";
              cout << "Would you like to roll the dice? Enter 'yes' to roll the dice. Enter 'no' to not roll the dice." << endl;
              cin >> word2;
          };
+
+    // Will roll dice if user wants to roll dice.
           if (word2 == "yes") {
              cout << "Rolling Dice..." << endl;
              
@@ -132,11 +173,11 @@ void Game::play(){
 
             
 };
-*/
+
        
      int main() {
          Game newGame;
-         newGame.play();
+         newGame.play(); // Runs the game
 
      }
 
