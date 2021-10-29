@@ -126,10 +126,11 @@ void Game::play(){
 
            if (word2 == "yes") {
              cout << "Rolling Dice..." << endl;
+        while (checkCategory!=14 || word2 == "yes")
 
              for (int i = 0; i < 5; i++) {
                     newDice.dieArray[i].value = newDice.rollDice(newDice.dieArray[i]);
-                }
+                     }
                 newDice.sortDice();
                 cout << endl;
                 cout << "-----------------------------------" << endl;
