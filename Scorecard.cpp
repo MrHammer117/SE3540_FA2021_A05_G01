@@ -179,185 +179,6 @@ bool scorecard::selectCat(int user_input, Dice dice)
 	{
 		cout << "This catogory is already filled please select another one.";
 	}
-	/*
-	switch (user_input) {
-	case 1:
-		if (used[0] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[0] = temp_score;
-			used[0] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 2:
-		if (used[1] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[1] = temp_score;
-			used[1] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 3:
-		if (used[2] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[2] = temp_score;
-			used[2] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 4:
-		if (used[3] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[3] = temp_score;
-			used[3] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 5:
-		if (used[4] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[4] = temp_score;
-			used[4] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 6:
-		if (used[5] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[5] = temp_score;
-			used[5] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 7:
-		if (used[6] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[6] = temp_score;
-			used[6] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 8:
-		if (used[7] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[7] = temp_score;
-			used[7] = true;
-		}
-		break;
-	case 9:
-		if (used[8] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[8] = temp_score;
-			used[8] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 10:
-		if (used[9] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[9] = temp_score;
-			used[9] = true;
-		}
-		else
-		{
-		cout << "\n 8)'4 of a Kind': " << getScore(7);
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 11:
-		if (used[10] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[10] = temp_score;
-			used[10] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 12:
-		if (used[11] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[11] = temp_score;
-			used[11] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-	case 13:
-		if (used[12] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[12] = temp_score;
-			used[12] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 14:
-		if (used[13] == false)
-		{
-			temp_score = addScore(user_input, dice);
-			score[13] = temp_score;
-			used[13] = true;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	case 15:
-		if (used[14] == true)
-		{
-			temp_score = addScore(user_input, dice);
-			score[14] += temp_score;
-		}
-		else
-		{
-			cout << "This catogory is already filled please select another one.";
-		}
-		break;
-	}
-	*/
 }
 
 // This method adds all the scores in the scores[] into final score
@@ -422,7 +243,6 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++) {
 			if (dice.getValue(dice.dieArray[j]) == 3) { upperScore += 3; }
 		}
-
 			upperScore += (count * 3);
 			return (count * 3);
 
@@ -443,8 +263,8 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 5) { count++; }
 
-			upperScore += (count * 5);
-			return (count * 5);
+		upperScore += (count * 5);
+		return (count * 5);
 
 	// SIXES
 	case 6:
@@ -453,8 +273,8 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 6) { upperScore += 6; }
 
-			upperScore += (count * 6);
-			return (count * 6);
+		upperScore += (count * 6);
+		return (count * 6);
 
 
 	// TOP BONUS
@@ -493,9 +313,10 @@ int scorecard::addScore(int key, Dice dice)
 
 
 		if (count >= 3) {
-			for (int i = 0; i < 5; i++)
-				newVal += dice.getValue(dice.dieArray[i]);
-				lowerScore += dice.getValue(dice.dieArray[i]);
+			for (int j = 0; j < 5; j++){
+				newVal += dice.getValue(dice.dieArray[j]);
+				lowerScore += dice.getValue(dice.dieArray[j]);
+			}
 		}
 
 		return newVal;
@@ -522,9 +343,9 @@ int scorecard::addScore(int key, Dice dice)
 
 
 		if (count >= 4) {
-			for (int i = 0; i < 5; i++){
-				lowerScore += dice.getValue(dice.dieArray[i]);
-				newVal += dice.getValue(dice.dieArray[i]);
+			for (int j = 0; j < 5; j++){
+				lowerScore += dice.getValue(dice.dieArray[j]);
+				newVal += dice.getValue(dice.dieArray[j]);
 			}
 		}
 
@@ -548,10 +369,7 @@ int scorecard::addScore(int key, Dice dice)
 				return 25;
 			}
 
-
-
-
-		break;
+		return 0;
 
 	// SMALL STRAIGHT (four number sequence)
 	// [1,2,3,4,6]
@@ -569,7 +387,7 @@ int scorecard::addScore(int key, Dice dice)
 
 		if (countAcending == 3) {
 			lowerScore += 30;
-			break;
+			return 30;
 		}
 
 		for (int j = 4; j >= 0; j--) {
@@ -583,6 +401,8 @@ int scorecard::addScore(int key, Dice dice)
 			return 30;
 		}
 
+		return 0;
+
 
 	// LARGE STRAIGHT (five number sequence)
 	// [1,2,3,4,5]
@@ -590,7 +410,7 @@ int scorecard::addScore(int key, Dice dice)
 
 		count = 0;
 		for (int j = 0; j < 4; j++) {
-			if ((dice.getValue(dice.dieArray[j])+1) == dice.getValue(dice.dieArray[j + 1])) {
+			if (((dice.getValue(dice.dieArray[j]) + 1) == (dice.getValue(dice.dieArray[j] + 1)))) {
 				count++;
 			}
 		}
@@ -599,6 +419,7 @@ int scorecard::addScore(int key, Dice dice)
 			return 40;
 		}
 
+		return 0;
 
 
 	// YAHTZEE AND YAHTZEE BONUS
@@ -606,11 +427,12 @@ int scorecard::addScore(int key, Dice dice)
 	case 13:
 
 		count = 1;
-		check = dice.getValue(dice.dieArray[j];
+		check = dice.getValue(dice.dieArray[0]);
 
-		for(int i = 0; i < 5; i++){
-			if(check == dice.getValue(dice.dieArray[j])
+		for(int j = 0; j < 5; j++){
+			if(check == dice.getValue(dice.dieArray[j])) {
 				count++;
+			}
 		}
 
 		if(count == 5){
@@ -618,14 +440,16 @@ int scorecard::addScore(int key, Dice dice)
 			return 50;
 		}
 
+		return 0;
+
 
 	// CHANCE
 	// Adds up all of the dice
 	case 14:
 
-		for (int i = 0; i < 5; i++) {
-			newVal += dice.getValue(dice.dieArray[i]);
-			lowerScore += dice.getValue(dice.dieArray[i]);
+		for (int j = 0; j < 5; j++) {
+			newVal += dice.getValue(dice.dieArray[j]);
+			lowerScore += dice.getValue(dice.dieArray[j]);
 		}
 		return newVal;
 	}
