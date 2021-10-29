@@ -14,6 +14,7 @@ public:
     {
         string word;
         string word2;
+        srand(time(0));
     cout << "Hello. Welcome to Yahtzee." << endl;
      cout << "Type 'play' to play Yahtzee." << endl;
      cout << "Type 'stop' if you do not want to play the game." << endl;
@@ -51,7 +52,6 @@ public:
              scoreboard object2;
              object2.DisplayScoringRules;
              for (int i = 0; i <= 13; i++) {
-             srand(time(0));
              object.rollDice;
              object.sortDice;
              object2.DisplayCat;

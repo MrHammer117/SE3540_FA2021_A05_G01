@@ -169,6 +169,17 @@ bool scorecard::selectCat(int user_input, Dice dice)
 	int temp_score = NULL;
 	DisplayScoreCard();
 
+	if (used[user_input-1] == false)
+	{
+		temp_score = addScore(user_input, dice);
+		score[user_input - 1] = temp_score;
+		used[user_input - 1] = true;
+	}
+	else
+	{
+		cout << "This catogory is already filled please select another one.";
+	}
+	/*
 	switch (user_input) {
 	case 1:
 		if (used[0] == false)
@@ -346,6 +357,7 @@ bool scorecard::selectCat(int user_input, Dice dice)
 		}
 		break;
 	}
+	*/
 }
 
 // This method adds all the scores in the scores[] into final score
@@ -371,6 +383,7 @@ int scorecard::addScore(int key, Dice dice)
 	int countDecending = 0;
 	int check1 = 0;
 	int check2 = 0;
+	int newVal = 0;
 
 
 	switch (key) {
@@ -386,12 +399,11 @@ int scorecard::addScore(int key, Dice dice)
 
 		// Goes through all of the dice and if they equal 1. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 1 to upperScore.
-		for (int j = 0; j < 5; j++)
+		for (int j = 0; j < 5; j++) {
 			if (dice.getValue(dice.dieArray[j]) == 1) { count++; }
-
-			upperScore += (count * 1);
-
-		break;
+		}
+		upperScore += (count * 1);
+		return (count * 1);
 
 	// TWOS
 	case 2:
@@ -399,35 +411,33 @@ int scorecard::addScore(int key, Dice dice)
 		count = 0;
 		// Goes through all of the dice and if they equal 2. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 2 to upperScore.
-		for (int j = 0; j < 5; j++)
+		for (int j = 0; j < 5; j++) {
 			if (dice.getValue(dice.dieArray[j]) == 2) { count++; }
+		}
 
-			upperScore += (count * 2);
-
-		break;
+		upperScore += (count * 2);
+		return (count * 2);
 
 		// THREES
 	case 3:
 		// Goes through all of the dice and if they equal 3. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 3 to upperScore.
-		for (int j = 0; j < 5; j++)
+		for (int j = 0; j < 5; j++) {
 			if (dice.getValue(dice.dieArray[j]) == 3) { upperScore += 3; }
-
+		}
+			
 			upperScore += (count * 3);
-
-		break;
+			return (count * 3);
 
 		// FOURS
 	case 4:
 		// Goes through all of the dice and if they equal 4. IF it does, increment count by 1.
 		// IF count is 0 score for that cat = 0. Else add count * 4 to upperScore.
-		for (int j = 0; j < 5; j++)
+		for (int j = 0; j < 5; j++) {
 			if (dice.getValue(dice.dieArray[j]) == 4) { count++; }
-
+		}
 			upperScore += (count * 4);
-
-
-		break;
+			return (count * 4);
 
 		// FIVES
 	case 5:
@@ -436,12 +446,8 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 5) { count++; }
 
-			upperScore += (count * 4);
-
-
-		break;
-
-
+			upperScore += (count * 5);
+			return (count * 5);
 		// SIXES
 	case 6:
 		// Goes through all of the dice and if they equal 6. IF it does, increment count by 1.
@@ -449,9 +455,8 @@ int scorecard::addScore(int key, Dice dice)
 		for (int j = 0; j < 5; j++)
 			if (dice.getValue(dice.dieArray[j]) == 6) { upperScore += 6; }
 
-			upperScore += (count * 4);
-
-		break;
+			upperScore += (count * 6);
+			return (count * 6);
 
 
 		 // TOP BONUS
@@ -489,10 +494,11 @@ int scorecard::addScore(int key, Dice dice)
 
 		if (count >= 3) {
 			for (int i = 0; i < 5; i++)
+				newVal += dice.getValue(dice.dieArray[i]);
 				upperScore += dice.getValue(dice.dieArray[i]);
 		}
 
-	break;
+		return newVal;
 
 	// 4 of a kind
 	// [1,1,1,1,3]
@@ -526,25 +532,6 @@ int scorecard::addScore(int key, Dice dice)
 	// [1,1,1,5,5]
 	// [2,2,4,4,4]
 	case 10:
-	/*
-		check1 = 0;
-		check2 = 0;
-		if (dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1]) && dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[2]) ||
-			dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]) && dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[4]) &&
-			dice.getValue(dice.dieArray[1]) != dice.getValue(dice.dieArray[4])) {
-			check1 = 1;
-		}
-
-		if (((dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4])) || (dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1]))) &&
-			(dice.getValue(dice.dieArray[0]) != dice.getValue(dice.dieArray[4])) && !(dice.getValue(dice.dieArray[3]) < dice.getValue(dice.dieArray[4])) &&
-			!(dice.getValue(dice.dieArray[0]) < dice.getValue(dice.dieArray[1]))) {
-			check2 = 1;
-		}
-
-		if (check1 == 1 && check2 == 1) {
-			lowerScore += 25;
-		}
-*/
 		
 		//if (3 of a kind && 2 of a kind) || (2 of a kind && 3 of a kind)
 		if (((dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1])) && (dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2])) && // 3 of a kind
