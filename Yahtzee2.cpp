@@ -193,7 +193,7 @@ cout << "Would you like to roll the dice? Enter 'yes' to roll the dice." << endl
        
      int main() {
          Game newGame;
-         newGame.play();
+         newGame.play(); // Runs the game
 
      }
 
