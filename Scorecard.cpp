@@ -161,7 +161,7 @@ bool scorecard::IsValidCat(int userInput){
 bool scorecard::selectCat(int user_input, Dice dice)
 {
 	int temp_score = NULL;
-	DisplayScoreCard();
+	
 
 	if (used[user_input-1] == false)
 	{
@@ -171,7 +171,8 @@ bool scorecard::selectCat(int user_input, Dice dice)
 	}
 	else
 	{
-		cout << "This catogory is already filled please select another one.";
+		cout << "\nThis catogory is already filled please select another one.\n";
+		return false; //category has alrady been used
 	}
 	return used[user_input - 1];
 }

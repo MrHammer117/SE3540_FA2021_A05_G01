@@ -15,7 +15,7 @@ public:
     int totalresult;
     
 };
-
+/*
 void Game::play(){
     srand(time(0));
     string word;
@@ -23,7 +23,7 @@ void Game::play(){
     string word2;
     int num = 0; 
     Dice newDice;
-    scorecard card;
+    scorecard card;*/
     
         
        /* cout << "Hello. Welcome to Yahtzee." << endl;
@@ -76,7 +76,7 @@ void Game::play(){
     
     
     
-    
+   /* 
     
     // Menu options for game.
     cout << "Hello. Welcome to Yahtzee." << endl;
@@ -155,7 +155,69 @@ if (word=="play"){
 
             
 };
+*/
 
+
+void Game::play() {
+    srand(time(0));
+    string word;
+    int checkCategory = 0;
+    string word2;
+    int num = 0;
+    Dice newDice;
+    scorecard card;
+    bool allFilled=false;
+
+   
+
+    //prints out the rules of the game
+    card.DisplayScoringRules();
+
+
+    
+    while (allFilled == false) { //while the scorecard is not completely filled with scores
+       
+        
+
+        //checks used[] array in scorecard to see if all elements are !EMPTY
+        for (int i = 0; i < 14; i++) {
+            if (card.used[i] == false) {
+                allFilled = false;
+            }
+            else { allFilled = true; }
+        }
+
+
+        for (int i = 0; i < 5; i++) {
+            newDice.dieArray[i].value = newDice.rollDice(newDice.dieArray[i]);
+        }
+
+
+        newDice.sortDice();
+
+        cout << "\nYour dice:";
+        for (int i = 0; i < 5; i++) {
+            cout << " |" << newDice.getValue(newDice.dieArray[i]) << "| ";
+        }
+
+        
+
+        cout << endl;
+        cout << "Please input number of category you would like" << endl;
+        cin >> num;
+        while (card.selectCat(num, newDice) == false) { //if the category has already been filled ask user until a valid category is given
+            cout << "\nPlease choose an EMPTY category:\n";
+            cin >> num;
+        }
+       
+
+        checkCategory++;
+        card.DisplayScoreCard();//print the scorecard and its values at the end of every round
+    
+    }
+    //cout << "Your Yahtzee score is " << card.SetFinalScore();
+
+}
        
      int main() {
          Game newGame;
