@@ -1,4 +1,4 @@
-// Yahtzee2.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// Game.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
@@ -33,17 +33,17 @@ void Game::play() {
    cout << "Type 'play' to play Yahtzee." << endl;
    cout << "Type 'stop' to exit the game." << endl;
    cin >> word2;
-   if(word2 =="stop"){
+   
+   while (word2 != "stop" && word2 != "play"){
+    cout << "Yahtzee" << endl;
+    cout << "Type 'play' to play Yahtzee" << endl;
+    cout << "Type 'stop' to exit the game" << endl;
+    cin >> word2;
+   }
+   if (word2 == "stop") {
        cout << "Leaving game";
        exit(EXIT_FAILURE);
    }
-   if (word2 != "stop" && word2 != "play"){
-cout << "Yahtzee" << endl;
-cout << "Type 'play' to play Yahtzee" << endl;
-cout << "Type 'stop' to exit the game" << endl;
-cin >> word2;
-   }
-
 
 
     //prints out the rules of the game
