@@ -15,87 +15,6 @@ public:
     void play();
 };
 
-      
-   /* 
-    
-    // Menu options for game.
-    cout << "Hello. Welcome to Yahtzee." << endl;
-     cout << "Type 'play' to play Yahtzee." << endl;
-     cout << "Type 'stop' if you do not want to play the game." << endl;
-
-     //Asks for user input if they want to play or leave the game.
-    cin >> word;
-
-// Leaves game if user input is stop
-     if (word == "stop") {
-         cout << "Leaving game.";
-     }
-
-// Checks for errors
-     
-    if (word != "play" && word! = "stop"){
-        cout << "Error. Please try again.";
-        cout << "Hello. Welcome to Yahtzee." << endl;
-        cout << "Type 'play' to play Yahtzee" << endl;
-        cout << "Type 'stop' if you do not want to play the game." << endl;
-        cin >> word;
-    };
-    
-if (word=="play"){
- while (checkCategory!=14){
-
-        cout << "Would you like to roll the dice?" << endl;
-        cout << "Type 'yes' if you would like to roll." << endl;
-        cout << "Type 'no' if you do not want to exit game" << endl;
-        cin >> word2;
-
-        if(word2 == "no"){
-            cout << "Leaving game."
-        }
-        if(word2! == "yes" && word2!= "no"){
-            cout << "Leaving game." << endl;
-        }
-        if(word2 == "yes"){
-
-
-
-             for (int i = 0; i < 5; i++) {
-                    newDice.dieArray[i].value = newDice.rollDice(newDice.dieArray[i]);
-                     }
-                newDice.sortDice();
-                cout << endl;
-                cout << "-----------------------------------" << endl;
-                cout << endl;
-                card.DisplayScoringRules();
-                cout << endl;
-                cout << "-----------------------------------" << endl;
-                cout << endl;
-                card.DisplayScoreCard();
-                cout << endl;
-                cout << "-----------------------------------" << endl;
-                cout << endl;
-                for (int i = 0; i < 5; i++) {
-                    cout << " |" << newDice.getValue(newDice.dieArray[i]) << "| ";
-                }
-                
-                    cout << endl;
-                    cout << "Please input number of category you would like" << endl;
-                    cin >> num;
-                    card.selectCat(num, newDice);
-                    card.addScore(num,newDice);
-                    
-                checkCategory++;
-    
-            
-         };
-         
-         cout << "Your Yahtzee score is " << card.SetFinalScore;
-        };
-    };
-
-            
-};
-*/
 
 
 void Game::play() {
@@ -108,13 +27,29 @@ void Game::play() {
     scorecard card;
     bool allFilled=false;
 
-   
+    //Menu message
+
+   cout << "Yahtzee" << endl;
+   cout << "Type 'play' to play Yahtzee." << endl;
+   cout << "Type 'stop' to exit the game." << endl;
+   cin >> word2;
+   if(word2 =="stop"){
+       cout << "Leaving game";
+   }
+   if (word2 != "stop" || word2 != "play"){
+cout << "Yahtzee" << endl;
+cout << "Type 'play' to play Yahtzee" << endl;
+cout << "Type 'stop' to exit the game" << endl;
+cin >> word2;
+   }
+
+
 
     //prints out the rules of the game
     card.DisplayScoringRules();
 
 
-    
+    if (word2 == "play"){
     for (int i = 0; i < 13; i++) { //while the scorecard is not completely filled with scores
 
 
@@ -167,6 +102,7 @@ void Game::play() {
     
     }
     card.DisplayFinalScoreCard();
+    };
 
 }
        
