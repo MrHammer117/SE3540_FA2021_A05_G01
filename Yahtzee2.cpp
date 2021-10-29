@@ -142,11 +142,14 @@ if (word=="play"){
                     cout << "Please input number of category you would like" << endl;
                     cin >> num;
                     card.selectCat(num, newDice);
+                    card.addScore(num,newDice);
                     
                 checkCategory++;
     
             
          };
+         
+         cout << "Your Yahtzee score is " << card.SetFinalScore;
         };
     };
 
