@@ -41,7 +41,7 @@ void scorecard::DisplayScoringRules() {
 	cout << "\n 11)'Large Straight' - Roll 5 sequential numbers. Worth 40 points.";
 	cout << "\n 12)'YAHTZEE!' - Roll 5 of the same number. Worth 50 points.";
 	cout << "\n 13)'Chance' - Add the total of all five dice, and enter sum to score.";
-	cout << "\n 14)'Bonus' - Roll 5 of the same number. Worth 100 points after you have used YAHTZEE.";
+	cout << "\n 14)'Bonus' - Roll 5 of the same number. Worth 100 points after you have used YAHTZEE." << endl;
 }
 
 
@@ -132,7 +132,7 @@ void scorecard::DisplayScoreCard() {
 		cout << "\n 13)'Chance': " << getScore(12);
 	}
 	/* - Need to figure out how to better implement this!
-	if (getScore(15) <= -1) {
+	if (getScore(13) <= -1) {
 		cout << "\n 14)'Bonus': EMPTY";
 	}
 	else {
@@ -185,6 +185,7 @@ int scorecard::setFinalScore()
 	}
 	return(final_score);
 }
+
 
 // Key is the cateogory number and this method is for getting the dice values and make the score and send it to selectCat
 int scorecard::addScore(int key, Dice dice)
@@ -275,10 +276,7 @@ int scorecard::addScore(int key, Dice dice)
 	// TOP BONUS - Should this really be a category? I feel this throws off the number system - Adrian Humphrey
 	case 7:
 
-		if(grandScore >= 63){
-			upperScore += 35;
-			return 35;
-		}
+		
 
 */
 		///////////////////////
@@ -286,45 +284,24 @@ int scorecard::addScore(int key, Dice dice)
 		///////////////////////
 
 
-	// 3 OF A KIND - FIXED?
+	// 3 OF A KIND - Working
 	// [3,3,3,5,6]
 	// [1,2,4,4,4]
 	case 7:
-		check = 0;
 		count = 0;
-		/*
-		// Checks if valid dice input. Using checks because the dice are sorted.
-		for (int j = 0; j < 5; j++) {
-
-			if (check != dice.getValue(dice.dieArray[j])) {
-				check = dice.getValue(dice.dieArray[j]);
-			}
-			else {
-				count++;
-			}
-		}
-
-
-		if (count >= 3) {
-			for (int j = 0; j < 5; j++){
-				newVal += dice.getValue(dice.dieArray[j]);
-				lowerScore += dice.getValue(dice.dieArray[j]);
-			}
-		}
-		*/
 		if ((dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1])) && (dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2]))) {
 			for (int j = 0; j < 5; j++) {
 				lowerScore += dice.getValue(dice.dieArray[j]);
 				newVal += dice.getValue(dice.dieArray[j]);
 			}
 		}
-		if ((dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2])) && (dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]))) {
+		else if ((dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2])) && (dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]))) {
 			for (int j = 0; j < 5; j++) {
 				lowerScore += dice.getValue(dice.dieArray[j]);
 				newVal += dice.getValue(dice.dieArray[j]);
 			}
 		}
-		if ((dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3])) && (dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4]))) {
+		else if ((dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3])) && (dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4]))) {
 			for (int j = 0; j < 5; j++) {
 				lowerScore += dice.getValue(dice.dieArray[j]);
 				newVal += dice.getValue(dice.dieArray[j]);
@@ -332,32 +309,12 @@ int scorecard::addScore(int key, Dice dice)
 		}
 		return newVal;
 
-	// 4 of a kind -- FIXED?
+	// 4 of a kind -- Working
 	// [1,1,1,1,3]
 	// [3,5,5,5,5]
 	case 8:
 
-		check = dice.getValue(dice.dieArray[0]);
 		count = 0;
-		/*
-		// Checks if valid dice input. Using checks because the dice are sorted.
-		for (int j = 1; j < 5; j++) {
-			if (check != dice.getValue(dice.dieArray[j])) {
-
-				check = dice.getValue(dice.dieArray[j]);
-			}
-			else {
-				count++;
-			}
-		}
-
-		if (count == 4) {
-			for (int j = 0; j < 5; j++){
-				lowerScore += dice.getValue(dice.dieArray[j]);
-				newVal += dice.getValue(dice.dieArray[j]);
-			}
-		}
-		*/
 
 		if ((dice.getValue(dice.dieArray[0]) == dice.getValue(dice.dieArray[1])) && (dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2]))
 			&& (dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]))) {
@@ -366,7 +323,7 @@ int scorecard::addScore(int key, Dice dice)
 				newVal += dice.getValue(dice.dieArray[j]);
 			}
 		}
-		if ((dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2])) && (dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]))
+		else if ((dice.getValue(dice.dieArray[1]) == dice.getValue(dice.dieArray[2])) && (dice.getValue(dice.dieArray[2]) == dice.getValue(dice.dieArray[3]))
 			&& (dice.getValue(dice.dieArray[3]) == dice.getValue(dice.dieArray[4]))) {
 			for (int j = 0; j < 5; j++) {
 				lowerScore += dice.getValue(dice.dieArray[j]);
@@ -396,7 +353,7 @@ int scorecard::addScore(int key, Dice dice)
 
 		return 0;
 
-	// SMALL STRAIGHT (four number sequence) - Working some of the time
+	// SMALL STRAIGHT (four number sequence) - Working
 	// [1,2,3,4,6]
 	// [1,3,4,5,6]
 	case 10:
@@ -429,7 +386,7 @@ int scorecard::addScore(int key, Dice dice)
 		return 0;
 
 
-	// LARGE STRAIGHT (five number sequence) - Working some of the time
+	// LARGE STRAIGHT (five number sequence) - Working
 	// [1,2,3,4,5]
 	case 11:
 
@@ -439,7 +396,7 @@ int scorecard::addScore(int key, Dice dice)
 				count++;
 			}
 		}
-		if (count == 3) {
+		if (count >= 4) {
 			lowerScore += 40;
 			return 40;
 		}
@@ -452,10 +409,9 @@ int scorecard::addScore(int key, Dice dice)
 	case 12:
 
 		count = 1;
-		check = dice.getValue(dice.dieArray[0]);
 
-		for(int j = 0; j < 5; j++){
-			if(check == dice.getValue(dice.dieArray[j])) {
+		for(int j = 0; j < 4; j++){
+			if(dice.getValue(dice.dieArray[j]) == dice.getValue(dice.dieArray[j+1])) {
 				count++;
 			}
 		}
