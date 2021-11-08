@@ -7,7 +7,6 @@ Die class implementation
 Modified last: 10/26/21
 */
 
-#pragma once
 #ifndef DIE_H
 #define DIE_H
 #include <string>

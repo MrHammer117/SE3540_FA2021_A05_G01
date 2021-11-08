@@ -1,6 +1,6 @@
 /*
 Adrian Humphrey
-Rogelio Rojas (Bulk of sort die)
+Rogelio Rojas (Bulk of sort Die)
 SE 3450
 Group 01
 Assignment 5 Yahtzee game
@@ -17,7 +17,16 @@ using namespace std;
 
 // Initializes an array of Die objects so they can easily be sorted and compared
 Dice::Dice() {
-	Die dieList[5];
+	Die DieList[5];
+}
+
+Dice::Dice(Die first, Die second, Die thrid, Die fourth, Die fifth) {
+	Die DieList[5];
+	DieList[0] = first;
+	DieList[1] = second;
+	DieList[2] = thrid;
+	DieList[3] = fourth;
+	DieList[4] = fifth;
 }
 
 // Sends a value into getDie to retrieve the Die value
@@ -25,7 +34,7 @@ int Dice::getValue(Die retrieve) {
 	return retrieve.getDie();
 }
 
-//Rolls each individual die within the Dice array
+//Rolls each individual Die within the Dice array
 int Dice::rollDice(Die rollDie) {
 	int tempReturn = 0;
 	int min = 1;
@@ -37,7 +46,7 @@ int Dice::rollDice(Die rollDie) {
 }
 
 
-// Given an array of 5 die, it will sort them in ascending order
+// Given an array of 5 Die, it will sort them in ascending order
 void Dice::sortDice() {
 	Die temp;
 	Dice swapArr;

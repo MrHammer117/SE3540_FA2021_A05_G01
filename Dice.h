@@ -8,7 +8,6 @@ Dice class implementation
 Modified last: 10/26/21
 */
 
-#pragma once
 #ifndef DICE_H
 #define DICE_H
 #include "Die.h"
@@ -19,6 +18,7 @@ class Dice{
 public:
 	// Initializes an array of Die objects so they can easily be sorted and compared
 	Dice();
+	Dice(Die first, Die second, Die thrid, Die fourth, Die fifth);
 
 	// Sends a value into getDie to retrieve the Die value
 	int getValue(Die retrieve);
