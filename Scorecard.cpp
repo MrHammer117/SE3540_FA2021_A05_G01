@@ -463,3 +463,5 @@ int scorecard::addScore(int key, Dice dice)
 	return 0;
 
 }
+
+// Testing git on visual studio
