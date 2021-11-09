@@ -16,6 +16,7 @@ class Die {
 public:
 	// Initalizes value of the roll
 	Die();
+	Die(int input);
 
 	// Return the number from each dice roll, called from getValue in Dice.cpp
 	int getDie();
