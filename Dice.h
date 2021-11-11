@@ -29,6 +29,13 @@ public:
 	// Given an array of 5 die, it will sort them in ascending order
 	void sortDice();
 
+	// For testing if the array is sorted
+	int checkSort();
+
 	Die dieArray[5];
+	bool checkOne = false;
+	bool checkTwo = false;
+	bool checkThree = false;
+	bool checkFour = false;
 };
 #endif
