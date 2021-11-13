@@ -38,5 +38,7 @@ public:
 
 	int addScore(int key, Dice dice);
 
+	int CalcUpperSection(int catIndex, int count, Dice dice);
+
 };
 #endif
