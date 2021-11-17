@@ -69,8 +69,7 @@ void Dice::sortDice() {
 	}
 }
 
-int Dice::checkSort() {
-	Dice Arr;
+int Dice::checkSort(Dice Arr) {
 	if (Arr.dieArray[0].value <= Arr.dieArray[1].value) {
 		Arr.checkOne = true;
 	}

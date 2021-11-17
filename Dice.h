@@ -30,7 +30,7 @@ public:
 	void sortDice();
 
 	// For testing if the array is sorted
-	int checkSort();
+	int checkSort(Dice Arr);
 
 	Die dieArray[5];
 	bool checkOne = false;

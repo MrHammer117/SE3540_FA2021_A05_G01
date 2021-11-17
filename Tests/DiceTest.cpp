@@ -50,7 +50,8 @@ namespace DiceTest
 			diceRoll.dieArray[2].value = diceRoll.rollDice(diceRoll.dieArray[2]);
 			diceRoll.dieArray[3].value = diceRoll.rollDice(diceRoll.dieArray[3]);
 			diceRoll.dieArray[4].value = diceRoll.rollDice(diceRoll.dieArray[4]);
-			int check = diceRoll.checkSort();
+			diceRoll.sortDice();
+			int check = diceRoll.checkSort(diceRoll);
 			Assert::AreEqual(check, 1);
 		}
 		TEST_METHOD(testGetMethod) {
