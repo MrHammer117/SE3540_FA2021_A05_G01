@@ -152,7 +152,7 @@ namespace ScorecardTest
 				Assert::AreEqual(val11, 7);
 			}
 		}
-	};
-}
+};
+
 
 
