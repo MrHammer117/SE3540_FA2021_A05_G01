@@ -17,134 +17,142 @@ namespace ScorecardTest
 
 			TEST_METHOD(ThreeOfKindTestOne) {
 				Dice Dice;
-				scorecard Scorecard;
+				scorecard Scorecard = scorecard();
 				Dice.dieArray[0].value = 3;
 				Dice.dieArray[1].value = 3;
 				Dice.dieArray[2].value = 5;
 				Dice.dieArray[3].value = 3;
 				Dice.dieArray[4].value = 5;
-				int val1 = Scorecard.getScore(6);
+				Dice.SortDice();
+				int val1 = Scorecard.addScore(7,Dice);
 				Assert::AreEqual(val1,19);
 			}
 			TEST_METHOD(ThreeOfKindTestTwo) {
 				Dice Dice;
-				scorecard Scorecard;
+				scorecard Scorecard = scorecard();
 				Dice.dieArray[0].value = 3;
 				Dice.dieArray[1].value = 3;
 				Dice.dieArray[2].value = 1;
 				Dice.dieArray[3].value = 1;
 				Dice.dieArray[4].value = 3;
-				int val2 = Scorecard.getScore(6);
+				Dice.SortDice();
+				int val2 = Scorecard.addScore(7, Dice);
 				Assert::AreEqual(val2, 11);
-
-
 
 			}
 			TEST_METHOD(ThreeOfKindTestThree) {
 				Dice Dice;
-				scorecard Scorecard;
+				scorecard Scorecard = scorecard();
 				Dice.dieArray[0].value = 1;
 				Dice.dieArray[1].value = 2;
 				Dice.dieArray[2].value = 1;
 				Dice.dieArray[3].value = 2;
 				Dice.dieArray[4].value = 1;
-				int val3 = Scorecard.getScore(6);
+				Dice.SortDice();
+				int val3 = Scorecard.addScore(7, Dice);
 				Assert::AreEqual(val3, 7);
-
-
-
 			}
 
 			TEST_METHOD(ThreeOfKindTestFour) {
 				Dice Dice;
-				scorecard Scorecard;
+				scorecard Scorecard = scorecard();
 				Dice.dieArray[0].value = 3;
 				Dice.dieArray[1].value = 3;
 				Dice.dieArray[2].value = 3;
 				Dice.dieArray[3].value = 3;
 				Dice.dieArray[4].value = 5;
-				int val4 = Scorecard.getScore(6);
+				Dice.SortDice();
+				int val4 = Scorecard.addScore(7, Dice);
 				Assert::AreEqual(val4, 17);
 			}
 
 			TEST_METHOD(ThreeOfKindTestFive) {
 				Dice Dice;
-				scorecard Scorecard;
+				scorecard Scorecard = scorecard();
 				Dice.dieArray[0].value = 5;
 				Dice.dieArray[1].value = 6;
 				Dice.dieArray[2].value = 3;
 				Dice.dieArray[3].value = 3;
 				Dice.dieArray[4].value = 3;
-				int val5 = Scorecard.getScore(6);
+				Dice.SortDice();
+				int val5 = Scorecard.addScore(7, Dice);
 				Assert::AreEqual(val5, 20);
 			}
 			TEST_METHOD(ThreeOfKindTestSix) {
 				Dice Dice;
-				scorecard Scorecard;
+				scorecard Scorecard = scorecard();
 				Dice.dieArray[0].value = 5;
 				Dice.dieArray[1].value = 6;
 				Dice.dieArray[2].value = 3;
 				Dice.dieArray[3].value = 3;
 				Dice.dieArray[4].value = 1;
-				int val6 = Scorecard.getScore(6);
+				Dice.SortDice();
+				int val6 = Scorecard.addScore(7, Dice);
 				Assert::AreEqual(val6, 0);
 			}
 
 			TEST_METHOD(FourOfKindTestOne) {
 				Dice Dice;
-				scorecard Scorecard;
+				scorecard Scorecard = scorecard();
 				Dice.dieArray[0].value = 1;
 				Dice.dieArray[1].value = 1;
 				Dice.dieArray[2].value = 1;
 				Dice.dieArray[3].value = 1;
 				Dice.dieArray[4].value = 3;
-				int val7 = Scorecard.getScore(7);
+				Dice.SortDice();
+				int val7 = Scorecard.addScore(8, Dice);
 				Assert::AreEqual(val7, 7);
 			}
 			TEST_METHOD(FourOfKindTestTwo) {
 				Dice Dice;
-				scorecard Scorecard;
+				scorecard Scorecard = scorecard();
 				Dice.dieArray[0].value = 3;
 				Dice.dieArray[1].value = 1;
 				Dice.dieArray[2].value = 1;
 				Dice.dieArray[3].value = 1;
 				Dice.dieArray[4].value = 1;
-				int val8 = Scorecard.getScore(7);
+				Dice.SortDice();
+				int val8 = Scorecard.addScore(8, Dice);
 				Assert::AreEqual(val8, 7);
 			}
 			TEST_METHOD(FourOfKindTestThree) {
 				Dice Dice;
-				scorecard Scorecard;
+				scorecard Scorecard = scorecard();
 				Dice.dieArray[0].value = 1;
 				Dice.dieArray[1].value = 3;
 				Dice.dieArray[2].value = 1;
 				Dice.dieArray[3].value = 1;
 				Dice.dieArray[4].value = 1;
-				int val9 = Scorecard.getScore(7);
+				Dice.SortDice();
+				int val9 = Scorecard.addScore(8, Dice);
 				Assert::AreEqual(val9, 7);
 			}
-			TEST_METHOD(ThreeOfKindTestFour) {
+			TEST_METHOD(FourOfKindTestFour) {
 				Dice Dice;
-				scorecard Scorecard;
+				scorecard Scorecard = scorecard();
 				Dice.dieArray[0].value = 1;
 				Dice.dieArray[1].value = 6;
 				Dice.dieArray[2].value = 1;
 				Dice.dieArray[3].value = 3;
 				Dice.dieArray[4].value = 1;
-				int val10 = Scorecard.getScore(7);
+				Dice.SortDice();
+				int val10 = Scorecard.addScore(8, Dice);
 				Assert::AreEqual(val10, 0);
 			}
-			TEST_METHOD(FourOfKindTestFour) {
+			TEST_METHOD(FourOfKindTestFive) {
 				Dice Dice;
-				scorecard Scorecard;
+				scorecard Scorecard = scorecard();
 				Dice.dieArray[0].value = 1;
 				Dice.dieArray[1].value = 1;
 				Dice.dieArray[2].value = 1;
 				Dice.dieArray[3].value = 3;
 				Dice.dieArray[4].value = 1;
-				int val11 = Scorecard.getScore(7);
+				Dice.SortDice();
+				int val11 = Scorecard.addScore(8, Dice);
 				Assert::AreEqual(val11, 7);
 			}
-			
+		}
 	};
 }
+
+
