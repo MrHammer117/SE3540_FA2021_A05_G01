@@ -151,8 +151,8 @@ namespace ScorecardTest
 				int val11 = Scorecard.addScore(8, Dice);
 				Assert::AreEqual(val11, 7);
 			}
-		}
-};
+		};
+}
 
 
 
