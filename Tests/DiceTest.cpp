@@ -13,6 +13,7 @@ namespace DiceTest
 	{
 	public:
 		
+		// Testing each individual die to ensure they are within the boundaries
 		TEST_METHOD(rngTestOne){
 			Dice diceRoll;
 			int val1 = diceRoll.rollDice(diceRoll.dieArray[0]);
@@ -43,6 +44,8 @@ namespace DiceTest
 			Assert::AreNotEqual(val5, 0);
 			Assert::AreNotEqual(val5, 7);
 		}
+
+		// Testing that the sort method is properly sorting the Die array
 		TEST_METHOD(testSortMethod) {
 			Dice diceRoll;
 			diceRoll.dieArray[0].value = diceRoll.rollDice(diceRoll.dieArray[0]);
@@ -54,6 +57,8 @@ namespace DiceTest
 			int check = diceRoll.checkSort(diceRoll);
 			Assert::AreEqual(check, 1);
 		}
+
+		// Testing that the get method is actually returning the value of the Die
 		TEST_METHOD(testGetMethod) {
 			Dice diceRoll;
 			diceRoll.dieArray[0].value = 5;
