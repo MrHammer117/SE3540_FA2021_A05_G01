@@ -40,6 +40,39 @@ namespace ScorecardTest2
 			Assert::AreEqual(score3, 150);
 		};
 		
+		TEST_METHOD(YahtzeeBonus2) {
+		Dice rollingDice;
+		Dice rollingDice2;
+		Dice rollingDice3;
+
+		rollingDice.dieArray[0].value = 5;
+		rollingDice.dieArray[1].value = 5;
+		rollingDice.dieArray[2].value = 5;
+		rollingDice.dieArray[3].value = 5;
+		rollingDice.dieArray[4].value = 5;
+
+		rollingDice2.dieArray[0].value = 5;
+		rollingDice2.dieArray[1].value = 5;
+		rollingDice2.dieArray[2].value = 5;
+		rollingDice2.dieArray[3].value = 5;
+		rollingDice2.dieArray[4].value = 5;
+
+		rollingDice3.dieArray[0].value = 5;
+		rollingDice3.dieArray[1].value = 5;
+		rollingDice3.dieArray[2].value = 5;
+		rollingDice3.dieArray[3].value = 5;
+		rollingDice3.dieArray[4].value = 5;
+
+
+		scorecard card;
+		int score = card.addScore(12, rollingDice);
+		int score2 = card.addScore(12, rollingDice2);
+		int score3 = card.addScore(12, rollingDice3);
+		int score4 = score + card.getYahtzeeCount();
+		Assert::AreEqual(score4, 250);
+
+	}
+		
 	
 	TEST_METHOD(large)
 		{
