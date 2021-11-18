@@ -96,10 +96,8 @@ namespace ScorecardTest
 
 		}
 
-		
-
-		//checks used array... must fail since the category hasnt been used
-		TEST_METHOD(TestEmptyCat)
+		//checks used array to see if it is changed as the categories are being filled
+		TEST_METHOD(TestUsedCat)
 		{
 			Dice testDice;
 			scorecard testCard = scorecard();
@@ -110,13 +108,16 @@ namespace ScorecardTest
 			testDice.dieArray[2].value = 3;
 			testDice.dieArray[3].value = 4;
 			testDice.dieArray[4].value = 5;
-
-
+			
 			testCard.selectCat(5, testDice);
+			testCard.selectCat(1, testDice);
+			testCard.selectCat(13, testDice);
 
-			Assert::IsTrue(testCard.used[1]);
-
+			Assert::IsTrue(testCard.used[4]);
+			Assert::IsTrue(testCard.used[0]);
+			Assert::IsTrue(testCard.used[12]);
 		}
+
 	};
 
 }
