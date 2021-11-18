@@ -40,7 +40,7 @@ namespace ScorecardTest3
 			Dice.dieArray[3].value = 6;
 			Dice.dieArray[4].value = 6;
 
-			int val = Scorecard.addScore(9);
+			int val = Scorecard.addScore(9, Dice);
 			Assert::AreEqual(val, 25);
 		}
 		
