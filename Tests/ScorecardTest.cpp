@@ -50,24 +50,7 @@ namespace ScorecardTest
 
 		}
 
-		//checks the score at a category ... must fail since thera a no die matching that category
-		TEST_METHOD(TestNoUpperScorer)
-		{
-			Dice testDice;
-			scorecard testCard = scorecard();
-			int score = 0;
-
-			testDice.dieArray[0].value = 1;
-			testDice.dieArray[1].value = 2;
-			testDice.dieArray[2].value = 3;
-			testDice.dieArray[3].value = 4;
-			testDice.dieArray[4].value = 5;
-			
-			//sixes
-			score = testCard.addScore(6, testDice);
-			Assert::AreEqual(score, 6);
-
-		}
+		
 		
 
 		//fills a scorecard and compares grand total
@@ -113,27 +96,7 @@ namespace ScorecardTest
 
 		}
 
-		//checks used array to see if it is changed as the categories are being filled
-		TEST_METHOD(TestUsedCat)
-		{
-			Dice testDice;
-			scorecard testCard = scorecard();
-			bool res;
-
-			testDice.dieArray[0].value = 1;
-			testDice.dieArray[1].value = 2;
-			testDice.dieArray[2].value = 3;
-			testDice.dieArray[3].value = 4;
-			testDice.dieArray[4].value = 5;
-			
-			testCard.selectCat(5, testDice);
-			testCard.selectCat(1, testDice);
-			testCard.selectCat(13, testDice);
-
-			Assert::IsTrue(testCard.used[4]);
-			Assert::IsTrue(testCard.used[0]);
-			Assert::IsTrue(testCard.used[12]);
-		}
+		
 
 		//checks used array... must fail since the category hasnt been used
 		TEST_METHOD(TestEmptyCat)
