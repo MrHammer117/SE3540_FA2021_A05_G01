@@ -40,7 +40,7 @@ The project that we created simulates a Yahtzee game. The first thing that you w
 
 **Evan Yonut**: Worked on the UpperBonusFullHouseYahtzee.cpp file. This file does the tests for upper bonus, Full house, and Yahtzee. 
 
-**Adrian**: DiceTest.cpp, checkSort was added to Dice.cpp to check whether or not the function was properly sorted. Also did the CMake file and the building on Gitlab
+**Adrian**: DiceTest.cpp, checkSort was added to Dice.cpp to check whether or not the function was properly sorted. Also did the CMake file and the building on Gitlab (yml).
 
 **Michael**: FourandThreeofaKind.cpp, also wrote the second half of the README, and did some changes in Game.cpp.
 
