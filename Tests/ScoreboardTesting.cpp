@@ -106,7 +106,7 @@ namespace ScorecardTest2
 			rollingDice.dieArray[2].value = 3;
 			rollingDice.dieArray[3].value = 4;
 			rollingDice.dieArray[4].value = 5;
-int score2 = scoreCard.addScore(11, rollingDice);
+            int score2 = scoreCard.addScore(11, rollingDice);
 			Assert::AreEqual(score2, 40);
 		};
 TEST_METHOD(large2)
