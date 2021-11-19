@@ -32,13 +32,13 @@ void Game::play() {
    cout << "Yahtzee" << endl;
    cout << "Type 'play' to play Yahtzee." << endl;
    cout << "Type 'stop' to exit the game." << endl;
-   cin >> word2;
+   getline(cin, word2);
    
    while (word2 != "stop" && word2 != "play"){
     cout << "Yahtzee" << endl;
     cout << "Type 'play' to play Yahtzee" << endl;
     cout << "Type 'stop' to exit the game" << endl;
-    cin >> word2;
+    getline(cin,word2);
    }
    if (word2 == "stop") {
        cout << "Leaving game";
