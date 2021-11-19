@@ -32,6 +32,12 @@ The project that we created simulates a Yahtzee game. The first thing that you w
 
 **Testing:** For testing we used CppUnitTestFramework in Visual Studios. The testing operates with each case you have is in a seperate method that you have to directly input the values you want to test in that function that will give the correct output you are expecting. It was not to difficult to learn the only hard parts of learning this new tool was how to use the assert functions to check the value. And also figuring out which function to call to get the values to put placed inside the function. Other than that it was fairly easy to get a understanding on after you got one Test Case to work. It was a like a different way of looking at code and physcially writing it.
 
-**Statement of Contributions:** ???
+**Statement of Contributions:** 
+
+**Roy**:scoretest.cpp, added a new function that scores aces - 6s and modified addScore function to mirror the changes.
+**Lucas**: ScoreboardTesting.cpp tested small, and large straight. It also checked yahtzee bonus. 
+**Evan Yonut**: Worked on the UpperBonusFullHouseYahtzee.cpp file. This file does the tests for upper bonus, Full house, and Yahtzee. 
+**Adrian**: DiceTest.cpp, checkSort was added to Dice.cpp to check whether or not the function was properly sorted.
+**Michael**: FourandThreeofaKind.cpp, also wrote the second half of the README, and did some changes in Game.cpp.
 
 
