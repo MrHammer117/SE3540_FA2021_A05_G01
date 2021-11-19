@@ -1,11 +1,11 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "C:\Users\kille\source\repos\se3540_Assignment_6\Dice.h"
-#include "C:\Users\kille\source\repos\se3540_Assignment_6\Die.h"
-#include "C:\Users\kille\source\repos\se3540_Assignment_6\Die.cpp"
-#include "C:\Users\kille\source\repos\se3540_Assignment_6\Dice.cpp"
-#include "C:\Users\kille\source\repos\se3540_Assignment_6\Scorecard.h"
-#include "C:\Users\kille\source\repos\se3540_Assignment_6\Scorecard.cpp"
+//#include "D:\Programming projects\Yahtzee\Dice.h"
+//#include "D:\Programming projects\Yahtzee\Die.h"
+//#include "D:\Programming projects\Yahtzee\Die.cpp"
+//#include "D:\Programming projects\Yahtzee\Dice.cpp"
+//#include "D:\Programming projects\Yahtzee\Scorecard.h"
+#include "D:\Programming projects\Yahtzee\Scorecard.cpp"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace ScorecardTest3
@@ -27,7 +27,7 @@ namespace ScorecardTest3
 			Dice.dieArray[4].value = 4;
 
 			int val = Scorecard.addScore(9, Dice);
-			Assert::AreEqual(val, 25)
+			Assert::AreEqual(val, 25);
 		}
 
 		TEST_METHOD(FullHouseTwo) {
@@ -59,7 +59,7 @@ namespace ScorecardTest3
 			Assert::AreNotEqual(val, 25);
 		}
 
-		TEST_METHOD(FullHouseThree) {
+		TEST_METHOD(FullHouseFour) {
 			Dice Dice;
 			scorecard Scorecard;
 
