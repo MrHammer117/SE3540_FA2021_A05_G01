@@ -71,8 +71,31 @@ namespace ScorecardTest2
 		int score4 = score + card.getYahtzeeCount();
 		Assert::AreEqual(score4, 250);
 
+
 	}
-		
+		TEST_METHOD(YahtzeeBonus3)
+	{
+		Dice rollingDice;
+		Dice rollingDice2;
+		rollingDice.dieArray[0].value = 1;
+		rollingDice.dieArray[1].value = 2;
+		rollingDice.dieArray[2].value = 3;
+		rollingDice.dieArray[3].value = 3;
+		rollingDice.dieArray[4].value = 5;
+
+		rollingDice2.dieArray[0].value = 1;
+		rollingDice2.dieArray[1].value = 1;
+		rollingDice2.dieArray[2].value = 2;
+		rollingDice2.dieArray[3].value = 3;
+		rollingDice2.dieArray[4].value = 4;
+
+
+		scorecard card;
+		int score7 = card.addScore(12, rollingDice);
+		int score8 = card.addScore(12, rollingDice2);
+		int score9 = score8 + card.getYahtzeeCount();
+		Assert::AreEqual(score9, 0);
+	};
 	
 	TEST_METHOD(large)
 		{
@@ -86,7 +109,18 @@ namespace ScorecardTest2
 int score2 = scoreCard.addScore(11, rollingDice);
 			Assert::AreEqual(score2, 40);
 		};
-
+TEST_METHOD(large2)
+	{
+		Dice rollingDice;
+		scorecard scoreCard;
+		rollingDice.dieArray[0].value = 1;
+		rollingDice.dieArray[1].value = 1;
+		rollingDice.dieArray[2].value = 3;
+		rollingDice.dieArray[3].value = 4;
+		rollingDice.dieArray[4].value = 5;
+		int score2 = scoreCard.addScore(11, rollingDice);
+		Assert::AreEqual(score2, 0);
+	};
 		
 		
 		TEST_METHOD(small)
@@ -114,6 +148,19 @@ int score2 = scoreCard.addScore(11, rollingDice);
 			rollingDice.dieArray[4].value = 6;
 			int score3 = scoreCard.addScore(10, rollingDice);
 			Assert::AreEqual(30, score3);
+		};
+		TEST_METHOD(small3)
+		{
+
+			Dice rollingDice;
+			scorecard scoreCard;
+			rollingDice.dieArray[0].value = 1;
+			rollingDice.dieArray[1].value = 3;
+			rollingDice.dieArray[2].value = 3;
+			rollingDice.dieArray[3].value = 5;
+			rollingDice.dieArray[4].value = 6;
+			int score3 = scoreCard.addScore(10, rollingDice);
+			Assert::AreEqual(0, score3);
 		};
 	};
 }
