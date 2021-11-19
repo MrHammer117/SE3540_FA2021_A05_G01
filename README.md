@@ -24,8 +24,11 @@ In a actual game you can throw the dice three times but in this application you 
 
 
 
-
-
 The project that we created simulates a Yahtzee game. The first thing that you will see when you run the program is a menu screen which will allow the player to start a game or to exit the application. If the user types 'start' to start the game the user will come across another screen and will ask the user if they want to roll the dice or exit the application. If the user wants to roll the dice, the dice will roll only once and show the dice. If the user does not want to roll the dice it will exit the game. It will also display the scoring rules, scoreboard, and categories that the user can choose to score in. The application will ask the user which category they would like to score in and if they enter an invalid category they will be asked to put it in another category. After choosing the category it will prompt the user to see if they are ready to roll the dice, show scoring rules, show the updated scoreboard that will show them their current scoring in each of the categories, and will also ask the user which available category they would like to score in. After the user repeats these steps and all categories are filled the game shows the user the final score and exits the game. 
 
-You can hack the code by putting a space in between each letter and if you input more than one word on the main menu, the application will keep sending you to the main menu. 
+Building: CMake with Visual Studios and GitLab.
+Integration: We tested the test cases outside of gitlab on Visual Studios and then commited the test files to git lab then did the build process on gitlab.
+Testing: For testing we used CppUnitTestFramework in Visual Studios. The testing operates with each case you have is in a seperate method that you have to directly input the values you want to test in that function that will give the correct output you are expecting. It was not to difficult to learn the only hard parts of learning this new tool was how to use the assert functions to check the value. And also figuring out which function to call to get the values to put placed inside the function. Other than that it was fairly easy to get a understanding on after you got one Test Case to work. It was a like a different way of looking at code and physcially writing it.
+Statement of Contributions: ???
+
+
