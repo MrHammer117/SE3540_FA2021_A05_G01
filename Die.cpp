@@ -15,11 +15,11 @@ using namespace std;
 
 // Initalizes value of the roll
 Die::Die() {
-	int value = 0;
+	value = 0;
 }
 
 Die::Die(int input) {
-	int value = input;
+	value = input;
 }
 
 // Return the number from each dice roll, called from getValue in Dice.cpp

@@ -18,10 +18,10 @@ using namespace std;
 // Initializes an array of Die objects so they can easily be sorted and compared
 Dice::Dice() {
 	Die DieList[5];
-	bool checkOne = false;
-	bool checkTwo = false;
-	bool checkThree = false;
-	bool checkFour = false;
+	checkOne = false;
+	checkTwo = false;
+	checkThree = false;
+	checkFour = false;
 }
 
 Dice::Dice(Die first, Die second, Die thrid, Die fourth, Die fifth) {
@@ -31,10 +31,10 @@ Dice::Dice(Die first, Die second, Die thrid, Die fourth, Die fifth) {
 	DieList[2] = thrid;
 	DieList[3] = fourth;
 	DieList[4] = fifth;
-	bool checkOne = false;
-	bool checkTwo = false;
-	bool checkThree = false;
-	bool checkFour = false;
+	checkOne = false;
+	checkTwo = false;
+	checkThree = false;
+	checkFour = false;
 }
 
 // Sends a value into getDie to retrieve the Die value
